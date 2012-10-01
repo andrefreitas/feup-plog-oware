@@ -1,0 +1,114 @@
+\documentclass[15pt,a4paper]{article}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\begin{document}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{22cm}
+
+\title{\Huge\textbf{Implementação em Prolog do Jogo Oware}\linebreak\linebreak\linebreak
+\Large\textbf{Relatório Intercalar}\linebreak\linebreak
+\includegraphics[height=6cm, width=7cm]{feup.pdf}\linebreak \linebreak
+\Large{Mestrado Integrado em Engenharia Informática e Computação} \linebreak \linebreak
+\Large{Programação em Lógica}\linebreak
+}
+
+\author{\textbf{Grupo 35:}\\ André Freitas - ei10036 \\ Rui Gonçalves - ei10100 \\\linebreak\linebreak \\
+ \\ Faculdade de Engenharia da Universidade do Porto \\ Rua Roberto Frias, s\/n, 4200-465 Porto, Portugal \linebreak\linebreak\linebreak
+\linebreak\linebreak\vspace{1cm}}
+%\date{Junho de 2007}
+\maketitle
+\thispagestyle{empty}
+
+%************************************************************************************************
+%************************************************************************************************
+
+\newpage
+
+\section*{Resumo}
+Este relatório tem o objetivo de descrever a fase de inicial de análise da implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.
+
+%************************************************************************************************
+%************************************************************************************************
+
+%*************************************************************************************************
+%************************************************************************************************
+
+\section{Introdução}
+Descrever os objectivos e motivação do trabalho. Não deve incluir nenhuma referência ao facto de ser feito no âmbito de uma cadeira.
+
+Último parágrafo deve indicar a estrutura do relatório.
+
+Devem ser incluídas referências bibliográficas correctas e completas (consultar os docentes em caso de dúvida). Páginas da wikipedia não são consideradas referências válidas \cite{CodigoSite, CodigoLivro}.
+
+Todas as figuras devem ser referidas no texto. %\ref{fig:codigoFigura}
+
+
+%Código para inserção de figuras
+%\begin{figure}[h!]
+%\begin{center}
+%escolher entre uma das seguintes três linhas:
+%\includegraphics[height=20cm,width=15cm]{path relativo da imagem}
+%\includegraphics[scale=0.5]{path relativo da imagem}
+%\includegraphics{path relativo da imagem}
+%\caption{legenda da figura}
+%\label{fig:codigoFigura}
+%\end{center}
+%\end{figure}
+
+Ajuda:
+
+\textit{Para escrever em itálico}
+
+\textbf{Para escrever em negrito}
+
+Para escrever em letra normal
+
+``Para escrever texto entre aspas''
+
+Para fazer parágrafo, deixar uma linha em branco.
+
+Como fazer bullet points:
+
+\begin{itemize}
+\item Item1
+\item Item2
+\end{itemize}
+
+Como enumerar itens:
+
+\begin{enumerate}
+\item Item 1
+\end{enumerate}
+
+\begin{quote}``Isto é uma citação''\end{quote}
+
+\section{Descrição do Problema}
+Descrever sucintamente o jogo, a sua história e, principalmente, as suas regras. Devem ser criadas/utilizadas imagens apropriadas para explicar o funcionamento do jogo.
+
+\section{Representação do Estado do Jogo}
+Descrever a forma de representação do estado do tabuleiro (tipicamente uma lista de listas), com exemplificação em Prolog de posições iniciais do jogo, posições intermédias e finais.
+
+\section{Representação de um Movimento}
+Descrever a forma de representação dos diversos tipos de jogadas (movimentos) permitidos no jogo. Só é necessário apresentar os cabeçalhos dos predicados que serão utilizados para as diferentes jogadas (que ainda não precisam de estar implementados).
+
+\section{Visualização do Tabuleiro}
+Descrever a forma de visualização do tabuleiro em modo de texto e os predicados Prolog construídos para o efeito. O código (predicado) desenvolvido, deve receber como parâmetro a representação do tabuleiro (estado do jogo) e permitir visualizar, no ecrã, em modo de texto, o estado do jogo. Deve ser incluída no relatório, pelo menos, uma imagem demonstrando a visualização em modo de texto do tabuleiro.
+
+\section{Conclusões e Perspectivas de Desenvolvimento}
+Que conclui da análise do jogo e da pesquisa bibliográfica realizada? Como vai ser desenvolvido o trabalho? Que parte (\%) do trabalho estima que falta fazer?
+
+\clearpage
+\addcontentsline{toc}{section}{Bibliografia}
+\renewcommand\refname{Bibliografia}
+\bibliographystyle{plain}
+\bibliography{myrefs}
+
+\newpage
+\appendix
+\section{Nome do Anexo A}
+Código Prolog implementado (representação do estado, cabeçalhos dos predicados de jogada e predicado que permite a visualização simples, em modo de texto, do tabuleiro).
+
+\end{document}
