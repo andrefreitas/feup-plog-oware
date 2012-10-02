@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  1 OCT 2012 22:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  2 OCT 2012 17:08
 entering extended mode
 **relatorio.tex
 (C:\Users\André\git\plog-oware\docs\relatorio.tex
@@ -307,109 +307,182 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks18
 \verbatim@in@stream=\read1
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count89
+\float@exts=\toks19
+\float@box=\box26
+\@float@everytoks=\toks20
+\@floatcapt=\box27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+\captionmargin=\dimen106
+\captionmargin@=\dimen107
+\captionwidth=\dimen108
+\caption@indent=\dimen109
+\caption@parindent=\dimen110
+\caption@hangindent=\dimen111
+)
+\c@ContinuedFloat=\count90
+Package caption Info: float package is loaded.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
+\c@subfigure=\count91
+\c@subtable=\count92
+)
 
 LaTeX Warning: Unused global option(s):
     [15pt].
 
-(C:\Users\André\git\plog-oware\docs\relatorio.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+(C:\Users\André\git\plog-oware\docs\relatorio.aux
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+LaTeX Warning: Label `fig:inicioJogo' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:inicioJogo' multiply defined.
+
+
+LaTeX Warning: Label `fig:semCaptura' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:semCaptura' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count89
-\scratchdimen=\dimen106
-\scratchbox=\box26
-\nofMPsegments=\count90
-\nofMParguments=\count91
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count92
-\MPscratchDim=\dimen107
-\MPnumerator=\count93
-\makeMPintoPDFobject=\count94
-\everyMPtoPDFconversion=\toks20
-) <feup.pdf, id=1, 614.295pt x 794.97pt>
+\scratchcounter=\count93
+\scratchdimen=\dimen112
+\scratchbox=\box28
+\nofMPsegments=\count94
+\nofMParguments=\count95
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count96
+\MPscratchDim=\dimen113
+\MPnumerator=\count97
+\makeMPintoPDFobject=\count98
+\everyMPtoPDFconversion=\toks22
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ <feup.pdf, id=1, 614.295pt x 794.97pt>
 File: feup.pdf Graphic file (type pdf)
  <use feup.pdf>
-Package pdftex.def Info: feup.pdf used on input line 22.
+Package pdftex.def Info: feup.pdf used on input line 25.
 (pdftex.def)             Requested size: 199.16547pt x 170.709pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 22.
+(Font)              <12> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 22.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 22.
+(Font)              <6> on input line 25.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/André/git/plog-
-oware/docs/feup.pdf>]
-
-LaTeX Warning: Citation `CodigoSite' on page 2 undefined on input line 43.
-
-
-LaTeX Warning: Citation `CodigoLivro' on page 2 undefined on input line 43.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--44
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 75.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
-
-<awale.jpg, id=17, 14.58951pt x 10.16296pt>
+oware/docs/feup.pdf>] <awale.jpg, id=17, 14.58951pt x 10.16296pt>
 File: awale.jpg Graphic file (type jpg)
  <use awale.jpg>
-Package pdftex.def Info: awale.jpg used on input line 94.
-(pdftex.def)             Requested size: 7.29472pt x 5.08147pt.
- [2]
-Overfull \hbox (2.75801pt too wide) in paragraph at lines 111--111
+Package pdftex.def Info: awale.jpg used on input line 52.
+(pdftex.def)             Requested size: 291.78925pt x 203.25867pt.
+
+<oware.jpg, id=18, 356.33125pt x 241.90375pt>
+File: oware.jpg Graphic file (type jpg)
+ <use oware.jpg>
+Package pdftex.def Info: oware.jpg used on input line 61.
+(pdftex.def)             Requested size: 178.16518pt x 120.95157pt.
+ [2 <C:/Users/André/git/plog-oware/docs/awale.jpg>]
+<iniciodoJogo.png, id=23, 770.88pt x 563.10374pt>
+File: iniciodoJogo.png Graphic file (type png)
+ <use iniciodoJogo.png>
+Package pdftex.def Info: iniciodoJogo.png used on input line 74.
+(pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
+
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 74--75
+ [][] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 77.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 77.
+<semCaptura.png, id=25, 770.88pt x 563.85657pt>
+File: semCaptura.png Graphic file (type png)
+ <use semCaptura.png>
+Package pdftex.def Info: semCaptura.png used on input line 81.
+(pdftex.def)             Requested size: 154.17326pt x 112.76932pt.
+
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 81--82
+ [][] 
+ []
+
+<antesCaptura.png, id=26, 770.88pt x 563.10374pt>
+File: antesCaptura.png Graphic file (type png)
+ <use antesCaptura.png>
+Package pdftex.def Info: antesCaptura.png used on input line 93.
+(pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
+
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 93--94
+ [][] 
+ []
+
+<captura.png, id=27, 770.88pt x 563.10374pt>
+File: captura.png Graphic file (type png)
+ <use captura.png>
+Package pdftex.def Info: captura.png used on input line 100.
+(pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
+
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 100--101
+ [][] 
+ []
+
+[3 <C:/Users/André/git/plog-oware/docs/oware.jpg> <C:/Users/André/git/plog-ow
+are/docs/iniciodoJogo.png> <C:/Users/André/git/plog-oware/docs/semCaptura.png>
+]
+Overfull \hbox (2.75801pt too wide) in paragraph at lines 115--115
 []\OT1/cmr/bx/n/14.4 Conclus~oes e Pers-pec-ti-vas de De-sen-vol-vi-mento 
  []
 
-[3] [4 <C:/Users/André/git/plog-oware/docs/awale.jpg>]
+[4 <C:/Users/André/git/plog-oware/docs/antesCaptura.png> <C:/Users/André/git/
+plog-oware/docs/captura.png>]
 No file relatorio.bbl.
 [5
 
 ] (C:\Users\André\git\plog-oware\docs\relatorio.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1741 strings out of 494045
- 21954 string characters out of 3148384
- 78413 words of memory out of 3000000
- 5034 multiletter control sequences out of 15000+200000
- 8847 words of font info for 31 fonts, out of 3000000 for 9000
+ 2870 strings out of 494045
+ 41964 string characters out of 3148384
+ 104155 words of memory out of 3000000
+ 6149 multiletter control sequences out of 15000+200000
+ 8492 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 27i,7n,24p,442b,251s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmti10.pfb>
-Output written on relatorio.pdf (5 pages, 277185 bytes).
+ 36i,9n,38p,472b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on relatorio.pdf (5 pages, 3491868 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

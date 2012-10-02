@@ -4,6 +4,9 @@
 \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{verbatim}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 \begin{document}
 \setlength{\textwidth}{16cm}
 \setlength{\textheight}{22cm}
@@ -37,66 +40,68 @@ Este relatório tem o objetivo de descrever a fase de inicial de análise da imp
 %************************************************************************************************
 
 \section{Introdução}
-Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras reais traduzidas nesta linguagem. \\
+Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
 \indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente de funcionalidades. \\
-\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto. \\\\
-Devem ser incluídas referências bibliográficas correctas e completas (consultar os docentes em caso de dúvida). Páginas da wikipedia não são consideradas referências válidas \cite{CodigoSite, CodigoLivro}.
-
-Todas as figuras devem ser referidas no texto. %\ref{fig:codigoFigura}
-
-
-%Código para inserção de figuras
-%\begin{figure}[h!]
-%\begin{center}
-%escolher entre uma das seguintes três linhas:
-%\includegraphics[height=20cm,width=15cm]{path relativo da imagem}
-%\includegraphics[scale=0.5]{path relativo da imagem}
-%\includegraphics{path relativo da imagem}
-%\caption{legenda da figura}
-%\label{fig:codigoFigura}
-%\end{center}
-%\end{figure}
-
-Ajuda:
-
-\textit{Para escrever em itálico}
-
-\textbf{Para escrever em negrito}
-
-Para escrever em letra normal
-
-``Para escrever texto entre aspas''
-
-Para fazer parágrafo, deixar uma linha em branco.
-
-Como fazer bullet points:
-
-\begin{itemize}
-\item Item1
-\item Item2
-\end{itemize}
-
-Como enumerar itens:
-
-\begin{enumerate}
-\item Item 1
-\end{enumerate}
-
-\begin{quote}``Isto é uma citação''\end{quote}
+\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto.
 
 \section{Descrição do Problema}
-O jogo é portanto o Oware, que tem origem africana sendo mais jogado na República do Gana como aquele que é o jogo nacional extremamente popular. 
+O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é um jogo mais popular na República do Gana sendo um fenómeno nacional.
 
-
-\begin{figure}[africanPeople!]
+\begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.5]{awale.jpg}
+\includegraphics[scale=20]{awale.jpg}
 \caption{Pessoas jogando tradicionalmente o Oware}
-\label{fig:peoplePlaying}
+\label{fig:traditional}
 \end{center}
 \end{figure}
 
-Descrever sucintamente o jogo, a sua história e, principalmente, as suas regras. Devem ser criadas/utilizadas imagens apropriadas para explicar o funcionamento do jogo.
+Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adoptar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuíndo as sementes no sentido anti-horário.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.5]{oware.jpg}
+\caption{Distribuição das sementes}
+\label{fig:peoplePlaying}
+\end{center}
+\end{figure}
+ \indent Quando distribuirmos a última semente e se colocarmos num buraco do adversário e esse sítio ficar com 2 ou 3 sementes, capturamos essas sementes. O jogo termina quando um jogador capturar 25 sementes ou ambos os dois jogadores capturarem 24 sementes (empate).
+
+\subsection{Ilustração de jogadas}
+Nas seguintes ilustrações serão descritas duas situações de jogos fundamentais. Nesta primeira situação o jogo está a começar e o jogador vai distribuir a segunda cavidade de sementes. Assim, as sementes ficaram distribuídas
+\begin{figure} [H]
+        \centering
+        \begin{subfigure}[f]{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{iniciodoJogo.png}
+				\caption{Estado Inicial do Jogo}
+                \label{fig:inicioJogo}
+        \end{subfigure}%
+        \quad  \quad
+        \begin{subfigure}[f]{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{semCaptura.png}
+				\caption{Jogada sem Captura}
+				\label{fig:semCaptura}
+        \end{subfigure}
+\end{figure}
+
+A outra jogada importante é a de captura de sementes.
+
+\begin{figure} [H]
+        \centering
+        \begin{subfigure}[f]{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{antesCaptura.png}
+				\caption{Antes da Captura}
+                \label{fig:inicioJogo}
+        \end{subfigure}%
+        \quad  \quad
+        \begin{subfigure}[f]{0.3\textwidth}
+                \centering
+                \includegraphics[scale=0.2]{captura.png}
+				\caption{Após a Captura de Sementes}
+				\label{fig:semCaptura}
+        \end{subfigure}
+\end{figure}
 
 \section{Representação do Estado do Jogo}
 Descrever a forma de representação do estado do tabuleiro (tipicamente uma lista de listas), com exemplificação em Prolog de posições iniciais do jogo, posições intermédias e finais.
