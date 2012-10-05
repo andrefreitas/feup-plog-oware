@@ -2,6 +2,7 @@
 initBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
 
 % Print the board
+% Test with: printBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
 printBoardLine([]).
 printBoardLine([H|T]):-
 	write(' ( '),
@@ -9,9 +10,13 @@ printBoardLine([H|T]):-
 	write(' ) '),
 	printBoardLine(T).
 
-printBoard([H|T]):-
-	write('  /-----------------------\\ \n'),
-	write(' /'),
+printBoard([H|[Th|Tt]]):-
+	write('  /------------------------------------------\\ \n'),
+	write(' / '),
 	printBoardLine(H),
-	write(' \\ \n').
-	
+	write(' \\ \n'),
+	write('|----------------------------------------------|'),
+	write('\n \\ '),
+	printBoardLine(Th),
+	write(' / \n'),
+	write('  \\------------------------------------------/'). 
