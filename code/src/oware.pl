@@ -1,7 +1,7 @@
 % Starts the board with the default seeds
 initBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
 
-% Print the board
+% Board Visualization
 % Test with: initBoard(B),printBoard(B).
 printBoardLine([]).
 printBoardLine([H|T]):-
@@ -17,7 +17,7 @@ printLogo:-
 	write('         | (_) \\ V  V / (_| | | |  __/ \n'),
 	write('          \\___/ \\_/\\_/ \\__,_|_|  \\___| \n\n\n').
 	
-printBoard([H|[Th|Tt]]):-
+printBoard([H|[Th|_]]):-
 	printLogo,
 	write('\n'),
 	write('                    Player 1 \n\n'),
@@ -28,5 +28,26 @@ printBoard([H|[Th|Tt]]):-
 	write('   \\----------------------------------------/\n\n'),
 	write('                    Player 2 \n\n\n\n').
 
+% Core List Functions
+replace([_|T],0,X,[X|T]).
+replace([H|T],N,X,[H|T2]):- 
+	N>0, 
+	N1 is N-1,
+	replace(T,N1,X,T2).
 
+element([H|T],0,H).
+element([_|T],N,Val):-
+	N>0,
+	N2 is N-1,
+	element(T,N2,Val).
+
+elementPlus(List,I,Value,NewList):-
+	element(List,I,Oldval),
+	Newval is Oldval+Value,
+	replace(List,I,Newval,NewList).
+	
+elementMinus(List,I,Value,NewList):-
+	element(List,I,Oldval),
+	Newval is Oldval-Value,
+	replace(List,I,Newval,NewList).
 	
