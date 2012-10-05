@@ -45,7 +45,7 @@ Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas
 \indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto.
 
 \section{Descrição do Problema}
-O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é um jogo mais popular na República do Gana sendo um fenómeno nacional.
+O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é o jogo mais popular na República do Gana sendo um fenómeno nacional.
 
 \begin{figure}[h!]
 \begin{center}
@@ -66,7 +66,8 @@ Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde
  \indent Quando distribuirmos a última semente e se colocarmos num buraco do adversário e esse sítio ficar com 2 ou 3 sementes, capturamos essas sementes. O jogo termina quando um jogador capturar 25 sementes ou ambos os dois jogadores capturarem 24 sementes (empate).
 
 \subsection{Ilustração de jogadas}
-Nas seguintes ilustrações serão descritas duas situações de jogos fundamentais. Nesta primeira situação o jogo está a começar e o jogador vai distribuir a segunda cavidade de sementes. Assim, as sementes ficaram distribuídas
+Nas seguintes ilustrações serão descritas duas situações de jogos fundamentais. Pede-se especial atenção para as ilustrações, dado que é necessário estar atento às situações que descrevem para perceber o jogo.\\
+\indent Nesta primeira situação o jogo está a começar e o jogador vai distribuir a segunda cavidade de sementes. Assim, as sementes ficaram distribuídas e não houve captura. De notar novamente que o sentido da distribuição das sementes é anti-horário e que o jogador só pode retirar as sementes da sua linha.
 \begin{figure} [H]
         \centering
         \begin{subfigure}[f]{0.3\textwidth}
@@ -84,7 +85,7 @@ Nas seguintes ilustrações serão descritas duas situações de jogos fundament
         \end{subfigure}
 \end{figure}
 
-A outra jogada importante é a de captura de sementes.
+A outra jogada importante é a da captura de sementes, ou seja, quando um jogador ao distribuir a última semente calha numa linha do seu adversário, ficam 2 ou 3 sementes nesse sítio, capturando-as. Atenção que se a meio da distribuição das sementes conseguir este número das mesmas nas cavidades, não as pode capturar, por isso é só na semente final. Destaca-se esta situação dado que existem várias interpretações relativas a esta regra.
 
 \begin{figure} [H]
         \centering
@@ -102,6 +103,8 @@ A outra jogada importante é a de captura de sementes.
 				\label{fig:semCaptura}
         \end{subfigure}
 \end{figure}
+
+Pode-se constatar assim a simplicidade do jogo, mas apesar disso requer um componente estratégico para que se possa ganhar, tentando prever-se uma panóplia de jogadas possíveis para vencer o adversário e maximizar as nossas capturas.
 
 \section{Representação do Estado do Jogo}
 Descrever a forma de representação do estado do tabuleiro (tipicamente uma lista de listas), com exemplificação em Prolog de posições iniciais do jogo, posições intermédias e finais.

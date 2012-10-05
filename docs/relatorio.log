@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  2 OCT 2012 17:08
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  5 OCT 2012 11:29
 entering extended mode
 **relatorio.tex
 (C:\Users\André\git\plog-oware\docs\relatorio.tex
@@ -410,51 +410,51 @@ Package pdftex.def Info: oware.jpg used on input line 61.
 <iniciodoJogo.png, id=23, 770.88pt x 563.10374pt>
 File: iniciodoJogo.png Graphic file (type png)
  <use iniciodoJogo.png>
-Package pdftex.def Info: iniciodoJogo.png used on input line 74.
+Package pdftex.def Info: iniciodoJogo.png used on input line 75.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 74--75
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 75--76
  [][] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 77.
+(Font)              <7> on input line 78.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 77.
+(Font)              <5> on input line 78.
 <semCaptura.png, id=25, 770.88pt x 563.85657pt>
 File: semCaptura.png Graphic file (type png)
  <use semCaptura.png>
-Package pdftex.def Info: semCaptura.png used on input line 81.
+Package pdftex.def Info: semCaptura.png used on input line 82.
 (pdftex.def)             Requested size: 154.17326pt x 112.76932pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 81--82
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 82--83
  [][] 
  []
 
 <antesCaptura.png, id=26, 770.88pt x 563.10374pt>
 File: antesCaptura.png Graphic file (type png)
  <use antesCaptura.png>
-Package pdftex.def Info: antesCaptura.png used on input line 93.
+Package pdftex.def Info: antesCaptura.png used on input line 94.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 93--94
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 94--95
  [][] 
  []
 
 <captura.png, id=27, 770.88pt x 563.10374pt>
 File: captura.png Graphic file (type png)
  <use captura.png>
-Package pdftex.def Info: captura.png used on input line 100.
+Package pdftex.def Info: captura.png used on input line 101.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 100--101
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 101--102
  [][] 
  []
 
 [3 <C:/Users/André/git/plog-oware/docs/oware.jpg> <C:/Users/André/git/plog-ow
 are/docs/iniciodoJogo.png> <C:/Users/André/git/plog-oware/docs/semCaptura.png>
 ]
-Overfull \hbox (2.75801pt too wide) in paragraph at lines 115--115
+Overfull \hbox (2.75801pt too wide) in paragraph at lines 118--118
 []\OT1/cmr/bx/n/14.4 Conclus~oes e Pers-pec-ti-vas de De-sen-vol-vi-mento 
  []
 
@@ -475,12 +475,12 @@ Here is how much of TeX's memory you used:
  6149 multiletter control sequences out of 15000+200000
  8492 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 36i,9n,38p,472b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,9n,38p,481b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on relatorio.pdf (5 pages, 3491868 bytes).
+Output written on relatorio.pdf (5 pages, 3462966 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
