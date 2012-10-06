@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 18:50
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 19:19
 entering extended mode
 **relatorio.tex
-(C:\Users\André\git\plog-oware\docs\relatorio.tex
+(C:\Users\Rui\plog-oware\docs\relatorio.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,9 +13,9 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+("C:\Program Files (x86)\miktex\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+("C:\Program Files (x86)\miktex\tex\latex\base\size10.clo"
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,38 +30,38 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+("C:\Program Files (x86)\miktex\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files (x86)\miktex\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\portuges.ldf"
+("C:\Program Files (x86)\miktex\tex\generic\babel\portuges.ldf"
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+("C:\Program Files (x86)\miktex\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
 Package babel Info: Making " an active character on input line 145.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("C:\Program Files (x86)\miktex\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+("C:\Program Files (x86)\miktex\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Program Files (x86)\miktex\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -211,7 +211,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Program Files (x86)\miktex\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -242,7 +242,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Program Files (x86)\miktex\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -266,34 +266,34 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
+("C:\Program Files (x86)\miktex\tex\latex\tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files (x86)\miktex\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files (x86)\miktex\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files (x86)\miktex\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files (x86)\miktex\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files (x86)\miktex\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files (x86)\miktex\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files (x86)\miktex\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files (x86)\miktex\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -301,13 +301,13 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+("C:\Program Files (x86)\miktex\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks17
 \verbatim@line=\toks18
 \verbatim@in@stream=\read1
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+("C:\Program Files (x86)\miktex\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count89
 \float@exts=\toks19
@@ -315,10 +315,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box27
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+("C:\Program Files (x86)\miktex\tex\latex\caption\caption.sty"
 Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+("C:\Program Files (x86)\miktex\tex\latex\caption\caption3.sty"
 Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \captionmargin=\dimen106
 \captionmargin@=\dimen107
@@ -330,7 +330,7 @@ Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \c@ContinuedFloat=\count90
 Package caption Info: float package is loaded.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+("C:\Program Files (x86)\miktex\tex\latex\caption\subcaption.sty"
 Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count91
 \c@subtable=\count92
@@ -339,7 +339,7 @@ Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 LaTeX Warning: Unused global option(s):
     [15pt].
 
-(C:\Users\André\git\plog-oware\docs\relatorio.aux
+(C:\Users\Rui\plog-oware\docs\relatorio.aux
 
 LaTeX Warning: Label `fig:inicioJogo' multiply defined.
 
@@ -365,20 +365,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
-\scratchdimen=\dimen112
-\scratchbox=\box28
-\nofMPsegments=\count94
-\nofMParguments=\count95
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count96
-\MPscratchDim=\dimen113
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
-\everyMPtoPDFconversion=\toks22
-)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  <feup.pdf, id=1, 614.295pt x 794.97pt>
@@ -394,8 +380,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 25.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/André/git/plog-
-oware/docs/feup.pdf>] <awale.jpg, id=17, 14.58951pt x 10.16296pt>
+{C:/Users/Rui/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Rui/
+plog-oware/docs/feup.pdf>] <awale.jpg, id=17, 14.58951pt x 10.16296pt>
 File: awale.jpg Graphic file (type jpg)
  <use awale.jpg>
 Package pdftex.def Info: awale.jpg used on input line 47.
@@ -406,10 +392,11 @@ File: oware.jpg Graphic file (type jpg)
  <use oware.jpg>
 Package pdftex.def Info: oware.jpg used on input line 56.
 (pdftex.def)             Requested size: 178.16518pt x 120.95157pt.
- [2 <C:/Users/André/git/plog-oware/docs/awale.jpg>]
-<iniciodoJogo.png, id=23, 770.88pt x 563.10374pt>
+ [2 <C:/Users/Rui/plog-oware/docs/awale.jpg>] <iniciodoJogo.png, id=23, 770.88p
+t x 563.10374pt>
 File: iniciodoJogo.png Graphic file (type png)
- <use iniciodoJogo.png>
+
+<use iniciodoJogo.png>
 Package pdftex.def Info: iniciodoJogo.png used on input line 70.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
@@ -451,46 +438,40 @@ Overfull \hbox (17.59866pt too wide) in paragraph at lines 96--97
  [][] 
  []
 
-[3 <C:/Users/André/git/plog-oware/docs/oware.jpg> <C:/Users/André/git/plog-ow
-are/docs/iniciodoJogo.png> <C:/Users/André/git/plog-oware/docs/semCaptura.png>
-] [4 <C:/Users/André/git/plog-oware/docs/antesCaptura.png> <C:/Users/André/gi
-t/plog-oware/docs/captura.png>]
+[3 <C:/Users/Rui/plog-oware/docs/oware.jpg> <C:/Users/Rui/plog-oware/docs/inici
+odoJogo.png> <C:/Users/Rui/plog-oware/docs/semCaptura.png>] [4 <C:/Users/Rui/pl
+og-oware/docs/antesCaptura.png> <C:/Users/Rui/plog-oware/docs/captura.png>]
 <printBoardExample.png, id=40, 304.88907pt x 228.855pt>
 File: printBoardExample.png Graphic file (type png)
 
 <use printBoardExample.png>
 Package pdftex.def Info: printBoardExample.png used on input line 159.
 (pdftex.def)             Requested size: 304.88832pt x 228.85443pt.
- [5 <C:/Users/André/git/plog-oware/docs/printBoardExample.png>]
-Overfull \hbox (2.75801pt too wide) in paragraph at lines 167--167
-[]\OT1/cmr/bx/n/14.4 Conclus~oes e Pers-pec-ti-vas de De-sen-vol-vi-mento 
- []
-
-
+ [5 <C:/Users/Rui/plog-oware/docs/printBoardExample.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
-[6] [7] [8] [9] (C:\Users\André\git\plog-oware\docs\relatorio.aux)
+[6] [7] [8] [9] (C:\Users\Rui\plog-oware\docs\relatorio.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2880 strings out of 494045
- 42145 string characters out of 3148384
+ 2588 strings out of 494045
+ 38326 string characters out of 3147587
  106155 words of memory out of 3000000
- 6157 multiletter control sequences out of 15000+200000
+ 5868 multiletter control sequences out of 15000+200000
  9006 words of font info for 32 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 36i,9n,38p,472b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb>
-Output written on relatorio.pdf (9 pages, 3504332 bytes).
+ 36i,9n,38p,470b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/
+Program Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
+ Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files 
+(x86)/miktex/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/mi
+ktex/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/miktex/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on relatorio.pdf (9 pages, 3520497 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -37,7 +37,7 @@ Este relatório tem o objetivo de descrever a fase inicial da implementação do
 \section{Introdução}
 Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
 \indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente das funcionalidades. \\
-\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto.
+\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os aspetos de desenvolvimento do projeto.
 
 \section{Descrição do Problema}
 O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é o jogo mais popular na República do Gana sendo um fenómeno nacional.
@@ -50,7 +50,7 @@ O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado h�
 \end{center}
 \end{figure}
 
-Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adoptar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuíndo as sementes no sentido anti-horário.
+Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adotar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuindo as sementes no sentido anti-horário.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.5]{oware.jpg}
@@ -146,7 +146,7 @@ addScore(Score,Val,NewScore)
 
 
 \section{Visualização do Tabuleiro}
-Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logotipo do Jogo e outro para imprimir uma linha de sementes.
+Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logótipo do Jogo e outro para imprimir uma linha de sementes.
 
  \begin{verbatim}
 printBoard([H|[Th|_]],P1Score,P2Score)
@@ -164,11 +164,11 @@ printBoardLine([H|T])
 
 Estes predicados implicam sempre uma lista de listas de 6 elementos para que o tabuleiro apareça de forma correcta.
 \newpage
-\section{Conclusões e Perspectivas de Desenvolvimento}
+\section{Conclusões e Perspetivas de Desenvolvimento}
 \indent A implementação do Oware em termos de estrutura de dados é simples, porém, 
-requer maior esforço na implementação dos predicados que envolvem a distribuição das peças, principalmente o do cálculo da sequência de posições. Existem diversas interpretações das regras e outros nomes para o Oware, por isso tentamos adoptar a versão que é mais conhecida, que já foi aliás implementada em telemóveis.\\
+requer maior esforço na implementação dos predicados que envolvem a distribuição das peças, principalmente o do cálculo da sequência de posições. Existem diversas interpretações das regras e outros nomes para o Oware, por isso tentamos adotar a versão que é mais conhecida, que já foi aliás implementada em telemóveis.\\
 
-\indent Relativamente ao processo de desenvolvimento de trabalho, iremos adoptar um desenvolvimento iterativo com uma metodologia ágil que é o Scrum. Assim sendo, temos o seguinte Backlog com a estimação dos pontos de esforço, estando ordenado pela prioridade dos itens:
+\indent Relativamente ao processo de desenvolvimento de trabalho, iremos adotar um desenvolvimento iterativo com uma metodologia ágil que é o Scrum. Assim sendo, temos o seguinte Backlog com a estimação dos pontos de esforço, estando ordenado pela prioridade dos itens:
 
 \begin{enumerate}
   \item Representar o tabuleiro numa estrutura [N/A]
@@ -194,6 +194,19 @@ Ora assumindo este Backlog e tendo em conta que já implementamos até ao quarto
   \emph{ Oware- Played all over the World}.
   Acedido a 4 de Outubro de 2012.
   http://www.oware.org.
+  
+  \bibitem{Figura 1}
+  Awale.jpg
+  2006.
+  \emph{A game of awale}.
+  Acedido a 4 de Outubro de 2012.
+  http://upload.wikimedia.org/wikipedia/commons/1/14/Awale.jpg.
+  
+   \bibitem{Figura 2}
+	oware.jpg
+  \emph{Playing Oware in Ghana}.
+  Acedido a 4 de Outubro de 2012.
+  http://exploringafrica.matrix.msu.edu/teachers/events/oware.jpg.
 
 \end{thebibliography}
 
