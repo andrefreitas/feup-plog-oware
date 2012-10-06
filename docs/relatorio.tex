@@ -134,7 +134,13 @@ addScore(Score,Val,NewScore)
 
 
 \section{Visualização do Tabuleiro}
-Descrever a forma de visualização do tabuleiro em modo de texto e os predicados Prolog construídos para o efeito. O código (predicado) desenvolvido, deve receber como parâmetro a representação do tabuleiro (estado do jogo) e permitir visualizar, no ecrã, em modo de texto, o estado do jogo. Deve ser incluída no relatório, pelo menos, uma imagem demonstrando a visualização em modo de texto do tabuleiro.
+Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logotipo do Jogo e outro para imprimir uma linha de sementes.
+
+ \begin{verbatim}
+printBoard([H|[Th|_]],P1Score,P2Score)
+printLogo
+printBoardLine([H|T])
+\end{verbatim}
 
 \section{Conclusões e Perspectivas de Desenvolvimento}
 Que conclui da análise do jogo e da pesquisa bibliográfica realizada? Como vai ser desenvolvido o trabalho? Que parte (\%) do trabalho estima que falta fazer?

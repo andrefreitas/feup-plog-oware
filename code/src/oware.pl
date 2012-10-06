@@ -80,7 +80,8 @@ removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 %computeSequence(PlayerNum,I,Seeds,Sequence)
 %playSeeds(Board,PlayerNum,I,NewBoard)
 %evaluateCapture(Board,WhoPlayed,I)
-%gameRoutine(Board,Player1Score,Player2Score)
+%gameRoutine(Board,Player1Score,Player2Score):
+
 gameRoutine(_,25,_).
 gameRoutine(_,_,25).
 gameRoutine(_,24,24).
