@@ -107,10 +107,31 @@ A outra jogada importante é a da captura de sementes, ou seja, quando um jogado
 Pode-se constatar assim a simplicidade do jogo, mas apesar disso requer um componente estratégico para que se possa ganhar, tentando prever-se uma panóplia de jogadas possíveis para vencer o adversário e maximizar as nossas capturas.
 
 \section{Representação do Estado do Jogo}
-Descrever a forma de representação do estado do tabuleiro (tipicamente uma lista de listas), com exemplificação em Prolog de posições iniciais do jogo, posições intermédias e finais.
+O tabuleiro é representado por uma lista constituída por duas listas, sendo a primeira a linha do primeiro jogador e a segunda do segundo jogador. De destacar que o tabuleiro é de tamanho constante, apenas variando o valor das sementes em cada posição. O jogo começa com 4 sementes, logo a sua representação no início é:
+\begin{center}
+\begin{verbatim}
+[[4,4,4,4,4,4],[4,4,4,4,4,4]]
+\end{verbatim}
+\end{center}
+
+\indent Se o jogador retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira:
+ \begin{verbatim}
+[[0,4,4,4,4,4],[5,5,5,5,4,4]]
+\end{verbatim}
 
 \section{Representação de um Movimento}
-Descrever a forma de representação dos diversos tipos de jogadas (movimentos) permitidos no jogo. Só é necessário apresentar os cabeçalhos dos predicados que serão utilizados para as diferentes jogadas (que ainda não precisam de estar implementados).
+Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posição para distribuir, alterando depois o tabuleiro e 
+verificando se existe possibilidade de captura através de um outro predicado. Após isto, se tiver existido uma captura, os pontos(sementes) do jogador é atualizado.
+
+ \begin{verbatim}
+playSeeds(Board,PlayerNum,I,NewBoard)
+computeSequence(PlayerNum,I,Seeds,Sequence)
+removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew])
+addSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew])
+evaluateCapture(Board,WhoPlayed,I)
+addScore(Score,Val,NewScore)
+\end{verbatim}
+
 
 \section{Visualização do Tabuleiro}
 Descrever a forma de visualização do tabuleiro em modo de texto e os predicados Prolog construídos para o efeito. O código (predicado) desenvolvido, deve receber como parâmetro a representação do tabuleiro (estado do jogo) e permitir visualizar, no ecrã, em modo de texto, o estado do jogo. Deve ser incluída no relatório, pelo menos, uma imagem demonstrando a visualização em modo de texto do tabuleiro.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  5 OCT 2012 11:29
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 11:34
 entering extended mode
 **relatorio.tex
 (C:\Users\André\git\plog-oware\docs\relatorio.tex
@@ -453,15 +453,15 @@ Overfull \hbox (17.59866pt too wide) in paragraph at lines 101--102
 
 [3 <C:/Users/André/git/plog-oware/docs/oware.jpg> <C:/Users/André/git/plog-ow
 are/docs/iniciodoJogo.png> <C:/Users/André/git/plog-oware/docs/semCaptura.png>
-]
-Overfull \hbox (2.75801pt too wide) in paragraph at lines 118--118
+] [4 <C:/Users/André/git/plog-oware/docs/antesCaptura.png> <C:/Users/André/gi
+t/plog-oware/docs/captura.png>]
+Overfull \hbox (2.75801pt too wide) in paragraph at lines 139--139
 []\OT1/cmr/bx/n/14.4 Conclus~oes e Pers-pec-ti-vas de De-sen-vol-vi-mento 
  []
 
-[4 <C:/Users/André/git/plog-oware/docs/antesCaptura.png> <C:/Users/André/git/
-plog-oware/docs/captura.png>]
+[5]
 No file relatorio.bbl.
-[5
+[6
 
 ] (C:\Users\André\git\plog-oware\docs\relatorio.aux)
 
@@ -469,20 +469,21 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2870 strings out of 494045
- 41964 string characters out of 3148384
- 104155 words of memory out of 3000000
- 6149 multiletter control sequences out of 15000+200000
- 8492 words of font info for 30 fonts, out of 3000000 for 9000
+ 2873 strings out of 494045
+ 41993 string characters out of 3148384
+ 105155 words of memory out of 3000000
+ 6151 multiletter control sequences out of 15000+200000
+ 8660 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  36i,9n,38p,481b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on relatorio.pdf (5 pages, 3462966 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on relatorio.pdf (6 pages, 3479282 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

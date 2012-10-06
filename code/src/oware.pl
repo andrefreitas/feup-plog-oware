@@ -2,7 +2,7 @@
 initBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
 
 % Board Visualization
-% Test with: initBoard(B),printBoard(B).
+% Test with: initBoard(B),printBoard(B,0,0).
 printBoardLine([]).
 printBoardLine([H|T]):-
 	write(' ( '),
@@ -17,16 +17,21 @@ printLogo:-
 	write('         | (_) \\ V  V / (_| | | |  __/ \n'),
 	write('          \\___/ \\_/\\_/ \\__,_|_|  \\___| \n\n\n').
 	
-printBoard([H|[Th|_]]):-
+printBoard([H|[Th|_]],P1Score,P2Score):-
 	printLogo,
 	write('\n'),
-	write('                    Player 1 \n\n'),
+	write('              Player 1 - Score ['),
+	write(P1Score),
+	write(']\n\n'),
 	write('   /----------------------------------------\\ \n'),
 	write(' / '), printBoardLine(H),write(' \\ \n'),
 	write('|----------------------------------------------|'),
 	write('\n \\ '), printBoardLine(Th), write(' / \n'),
 	write('   \\----------------------------------------/\n\n'),
-	write('                    Player 2 \n\n\n\n').
+	write('              Player 2 - Score ['),
+	write(P2Score),
+	write(']\n\n\n').
+	
 
 % List Core Functions
 replace([_|T],0,X,[X|T]).
@@ -71,10 +76,11 @@ removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 	elementMinus(Th,I,Seeds,Tnew),
 	Hnew = H.
 		
-% This is a tricky one. The method is computing the sequence of distribution,
-% Example(format [Player,Index]:  [[2,4],[2,5],[1,5],[1,4]], 
-% the seeds where taken from player2 index 3 and where 4 seeds.
-computeSequence(PlayerNum,I,Seeds,Sequence).
-playSeeds(Board,PlayerNum,I,NewBoard).
-evaluateCapture(Board,PlayerNum,I).
-
+% To implement later
+%computeSequence(PlayerNum,I,Seeds,Sequence)
+%playSeeds(Board,PlayerNum,I,NewBoard)
+%evaluateCapture(Board,WhoPlayed,I)
+%gameRoutine(Board,Player1Score,Player2Score)
+gameRoutine(_,25,_).
+gameRoutine(_,_,25).
+gameRoutine(_,24,24).
