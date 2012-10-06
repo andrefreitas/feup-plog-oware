@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 19:19
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 19:40
 entering extended mode
 **relatorio.tex
 (C:\Users\Rui\plog-oware\docs\relatorio.tex
@@ -452,16 +452,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
-[6] [7] [8] [9] (C:\Users\Rui\plog-oware\docs\relatorio.aux)
+[6]
+Underfull \hbox (badness 1762) in paragraph at lines 212--217
+\OT1/cmr/m/n/10 dido a 2 de Ou-tu-bro de 2012. http://itunes.apple.com/br/app/e
+asy-
+ []
+
+[7] [8] [9] (C:\Users\Rui\plog-oware\docs\relatorio.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2588 strings out of 494045
- 38326 string characters out of 3147587
+ 2589 strings out of 494045
+ 38336 string characters out of 3147587
  106155 words of memory out of 3000000
- 5868 multiletter control sequences out of 15000+200000
+ 5869 multiletter control sequences out of 15000+200000
  9006 words of font info for 32 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  36i,9n,38p,470b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -471,7 +477,7 @@ Program Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
 (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/mi
 ktex/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/miktex/f
 onts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on relatorio.pdf (9 pages, 3520497 bytes).
+Output written on relatorio.pdf (9 pages, 3521409 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
