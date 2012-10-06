@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 12:47
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.10.1)  6 OCT 2012 16:18
 entering extended mode
 **relatorio.tex
 (C:\Users\Rui\plog-oware\docs\relatorio.tex
@@ -352,6 +352,44 @@ LaTeX Warning: Label `fig:semCaptura' multiply defined.
 
 LaTeX Warning: Label `sub@fig:semCaptura' multiply defined.
 
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.28 \newlabel{fig:Come\IeC {\c c}o}{{3}{10}}
+                                             
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Label `fig:Come\IeC {\c c}o' multiply defined.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.28 \newlabel{fig:Come\IeC {\c c}o}{{3}{10}}
+                                             
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 \newlabel{fig:Come\IeC {\c c}o}{{3}{10}}
+                                             
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Extra \endcsname.
+\@namedef ...xpandafter \def \csname #1\endcsname 
+                                                  
+l.28 \newlabel{fig:Come\IeC {\c c}o}{{3}{10}}
+                                             
+I'm ignoring this, since I wasn't doing a \csname.
+
 )
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -367,7 +405,10 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- <feup.pdf, id=1, 614.295pt x 794.97pt>
+ [1
+
+{C:/Users/Rui/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<feup.pdf, id=6, 614.295pt x 794.97pt>
 File: feup.pdf Graphic file (type pdf)
  <use feup.pdf>
 Package pdftex.def Info: feup.pdf used on input line 25.
@@ -378,87 +419,112 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 25.
- [1
-
-{C:/Users/Rui/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Rui/
-plog-oware/docs/feup.pdf>] <awale.jpg, id=17, 14.58951pt x 10.16296pt>
+ [2 <C:/Users/Rui/plog-oware/docs/feup.pdf>] [3] <awale.jpg, id=24, 14.58951pt 
+x 10.16296pt>
 File: awale.jpg Graphic file (type jpg)
- <use awale.jpg>
+
+<use awale.jpg>
 Package pdftex.def Info: awale.jpg used on input line 52.
 (pdftex.def)             Requested size: 291.78925pt x 203.25867pt.
-
-<oware.jpg, id=18, 356.33125pt x 241.90375pt>
+ <oware.jpg, id=25, 356.33125pt x 241.90375pt>
 File: oware.jpg Graphic file (type jpg)
  <use oware.jpg>
 Package pdftex.def Info: oware.jpg used on input line 61.
 (pdftex.def)             Requested size: 178.16518pt x 120.95157pt.
- [2 <C:/Users/Rui/plog-oware/docs/awale.jpg>] <iniciodoJogo.png, id=23, 770.88p
-t x 563.10374pt>
+
+[4 <C:/Users/Rui/plog-oware/docs/awale.jpg> <C:/Users/Rui/plog-oware/docs/oware
+.jpg>] [5] <iniciodoJogo.png, id=32, 770.88pt x 563.10374pt>
 File: iniciodoJogo.png Graphic file (type png)
 
 <use iniciodoJogo.png>
-Package pdftex.def Info: iniciodoJogo.png used on input line 75.
+Package pdftex.def Info: iniciodoJogo.png used on input line 79.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 75--76
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 79--80
  [][] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 78.
+(Font)              <7> on input line 82.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 78.
-<semCaptura.png, id=25, 770.88pt x 563.85657pt>
+(Font)              <5> on input line 82.
+<semCaptura.png, id=34, 770.88pt x 563.85657pt>
 File: semCaptura.png Graphic file (type png)
  <use semCaptura.png>
-Package pdftex.def Info: semCaptura.png used on input line 82.
+Package pdftex.def Info: semCaptura.png used on input line 86.
 (pdftex.def)             Requested size: 154.17326pt x 112.76932pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 82--83
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 86--87
  [][] 
  []
 
-<antesCaptura.png, id=26, 770.88pt x 563.10374pt>
+<antesCaptura.png, id=35, 770.88pt x 563.10374pt>
 File: antesCaptura.png Graphic file (type png)
  <use antesCaptura.png>
-Package pdftex.def Info: antesCaptura.png used on input line 94.
+Package pdftex.def Info: antesCaptura.png used on input line 98.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 94--95
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 98--99
  [][] 
  []
 
-<captura.png, id=27, 770.88pt x 563.10374pt>
+<captura.png, id=36, 770.88pt x 563.10374pt>
 File: captura.png Graphic file (type png)
  <use captura.png>
-Package pdftex.def Info: captura.png used on input line 101.
+Package pdftex.def Info: captura.png used on input line 105.
 (pdftex.def)             Requested size: 154.17326pt x 112.61874pt.
 
-Overfull \hbox (17.59866pt too wide) in paragraph at lines 101--102
+Overfull \hbox (17.59866pt too wide) in paragraph at lines 105--106
  [][] 
  []
 
-[3 <C:/Users/Rui/plog-oware/docs/oware.jpg> <C:/Users/Rui/plog-oware/docs/inici
-odoJogo.png> <C:/Users/Rui/plog-oware/docs/semCaptura.png>] [4 <C:/Users/Rui/pl
-og-oware/docs/antesCaptura.png> <C:/Users/Rui/plog-oware/docs/captura.png>]
-Overfull \hbox (2.75801pt too wide) in paragraph at lines 145--145
-[]\OT1/cmr/bx/n/14.4 Conclus~oes e Pers-pec-ti-vas de De-sen-vol-vi-mento 
+[6 <C:/Users/Rui/plog-oware/docs/iniciodoJogo.png> <C:/Users/Rui/plog-oware/doc
+s/semCaptura.png> <C:/Users/Rui/plog-oware/docs/antesCaptura.png> <C:/Users/Rui
+/plog-oware/docs/captura.png>] [7]
+<printBoardExample.png, id=50, 362.85562pt x 323.70938pt>
+File: printBoardExample.png Graphic file (type png)
+
+<use printBoardExample.png>
+Package pdftex.def Info: printBoardExample.png used on input line 172.
+(pdftex.def)             Requested size: 362.85474pt x 323.70859pt.
+
+Overfull \hbox (17.85474pt too wide) in paragraph at lines 172--173
+ [] 
  []
 
-[5]
-No file relatorio.bbl.
-[6
 
-] (C:\Users\Rui\plog-oware\docs\relatorio.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] [9 <C:/Users/Rui/plog-oware/docs/printBoardExample.png>]
+No file relatorio.bbl.
+[10
+
+] (C:\Users\Rui\plog-oware\docs\relatorio.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.27 \newlabel{fig:Come\IeC {\c c}o}{{3}{9}}
+                                            
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Extra \endcsname.
+\@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
+                                                  \def \bbl@tempb {#3}\@safe...
+l.27 \newlabel{fig:Come\IeC {\c c}o}{{3}{9}}
+                                            
+I'm ignoring this, since I wasn't doing a \csname.
+
+)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2578 strings out of 494045
- 38146 string characters out of 3147587
- 105155 words of memory out of 3000000
- 5859 multiletter control sequences out of 15000+200000
+ 2584 strings out of 494045
+ 38280 string characters out of 3147587
+ 103155 words of memory out of 3000000
+ 5864 multiletter control sequences out of 15000+200000
  8660 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  36i,9n,38p,481b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -467,9 +533,9 @@ Program Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
  Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files 
 (x86)/miktex/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/mi
 ktex/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on relatorio.pdf (6 pages, 3480252 bytes).
+Output written on relatorio.pdf (10 pages, 3517270 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

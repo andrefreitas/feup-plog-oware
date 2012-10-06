@@ -24,7 +24,7 @@
 %\date{Junho de 2007}
 \maketitle
 \thispagestyle{empty}
-
+%
 %************************************************************************************************
 %************************************************************************************************
 
@@ -42,8 +42,8 @@ Este relatório tem o objetivo de descrever a fase de inicial de análise da imp
 \section{Introdução}
 Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
 \indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente de funcionalidades. \\
-\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto.
-
+\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os aspetos de desenvolvimento do projeto.
+\newpage
 \section{Descrição do Problema}
 O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é o jogo mais popular na República do Gana sendo um fenómeno nacional.
 
@@ -55,7 +55,7 @@ O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado h�
 \end{center}
 \end{figure}
 
-Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adoptar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuíndo as sementes no sentido anti-horário.
+Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adotar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuindo as sementes no sentido anti-horário.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.5]{oware.jpg}
@@ -64,6 +64,10 @@ Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde
 \end{center}
 \end{figure}
  \indent Quando distribuirmos a última semente e se colocarmos num buraco do adversário e esse sítio ficar com 2 ou 3 sementes, capturamos essas sementes. O jogo termina quando um jogador capturar 25 sementes ou ambos os dois jogadores capturarem 24 sementes (empate).
+\newpage
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 
 \subsection{Ilustração de jogadas}
 Nas seguintes ilustrações serão descritas duas situações de jogos fundamentais. Pede-se especial atenção para as ilustrações, dado que é necessário estar atento às situações que descrevem para perceber o jogo.\\
@@ -105,6 +109,10 @@ A outra jogada importante é a da captura de sementes, ou seja, quando um jogado
 \end{figure}
 
 Pode-se constatar assim a simplicidade do jogo, mas apesar disso requer um componente estratégico para que se possa ganhar, tentando prever-se uma panóplia de jogadas possíveis para vencer o adversário e maximizar as nossas capturas.
+\newpage
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 
 \section{Representação do Estado do Jogo}
 O tabuleiro é representado por uma lista constituída por duas listas, sendo a primeira a linha do primeiro jogador e a segunda do segundo jogador. De destacar que o tabuleiro é de tamanho constante, apenas variando o valor das sementes em cada posição. O jogo começa com 4 sementes, logo a sua representação no início é:
@@ -114,10 +122,24 @@ O tabuleiro é representado por uma lista constituída por duas listas, sendo a 
 \end{verbatim}
 \end{center}
 
-\indent Se o jogador retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira:
+\indent Se o jogador retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira: 
  \begin{verbatim}
 [[0,4,4,4,4,4],[5,5,5,5,4,4]]
 \end{verbatim}
+
+\indent No caso de um dos jogadores atingir uma pontuação igual ou superior a 25 esse jogador ganha o jogo pois capturou mais de metade das sementes em jogo, Por exemplo:
+ \begin{verbatim}
+[[0,5,0,3,0,0],[0,0,0,4,8,4]]
+\end{verbatim} 
+
+\indent Num jogo de Oware também é possível, mas pouco provável, empatar pois se os dois jogadores atingirem os 24 pontos todas as sementes em jogo foram capturadas.
+ \begin{verbatim}
+[[0,0,0,0,0,0],[0,0,0,0,0,0]]
+\end{verbatim}
+\newpage
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 
 \section{Representação de um Movimento}
 Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posição para distribuir, alterando depois o tabuleiro e 
@@ -132,9 +154,11 @@ evaluateCapture(Board,WhoPlayed,I)
 addScore(Score,Val,NewScore)
 \end{verbatim}
 
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
 
 \section{Visualização do Tabuleiro}
-Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logotipo do Jogo e outro para imprimir uma linha de sementes.
+Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logótipo do Jogo e outro para imprimir uma linha de sementes.
 
  \begin{verbatim}
 printBoard([H|[Th|_]],P1Score,P2Score)
@@ -142,7 +166,21 @@ printLogo
 printBoardLine([H|T])
 \end{verbatim}
 
-\section{Conclusões e Perspectivas de Desenvolvimento}
+
+\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[scale=1]{printBoardExample.png}
+	\caption{Começo do jogo}
+	\label{fig:Começo}
+	\end{center}
+\end{figure}
+
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+
+\newpage
+\section{Conclusões e Perspetivas de Desenvolvimento}
 Que conclui da análise do jogo e da pesquisa bibliográfica realizada? Como vai ser desenvolvido o trabalho? Que parte (\%) do trabalho estima que falta fazer?
 
 \clearpage
