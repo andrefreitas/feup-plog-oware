@@ -71,4 +71,10 @@ removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 	elementMinus(Th,I,Seeds,Tnew),
 	Hnew = H.
 		
-% distributeSeeds(PlayerNum,Board,I,NewBoard):-
+% This is a tricky one. The method is computing the sequence of distribution,
+% Example(format [Player,Index]:  [[2,4],[2,5],[1,5],[1,4]], 
+% the seeds where taken from player2 index 3 and where 4 seeds.
+computeSequence(PlayerNum,I,Seeds,Sequence).
+playSeeds(Board,PlayerNum,I,NewBoard).
+evaluateCapture(Board,PlayerNum,I).
+
