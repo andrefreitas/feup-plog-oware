@@ -24,14 +24,9 @@
 %\date{Junho de 2007}
 \maketitle
 \thispagestyle{empty}
-%
-%************************************************************************************************
-%************************************************************************************************
-
 \newpage
-
 \section*{Resumo}
-Este relatório tem o objetivo de descrever a fase de inicial de análise da implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.
+Este relatório tem o objetivo de descrever a fase inicial da implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.
 
 %************************************************************************************************
 %************************************************************************************************
@@ -41,9 +36,9 @@ Este relatório tem o objetivo de descrever a fase de inicial de análise da imp
 
 \section{Introdução}
 Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
-\indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente de funcionalidades. \\
-\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os aspetos de desenvolvimento do projeto.
-\newpage
+\indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente das funcionalidades. \\
+\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os apectos de desenvolvimento do projeto.
+
 \section{Descrição do Problema}
 O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é o jogo mais popular na República do Gana sendo um fenómeno nacional.
 
@@ -55,7 +50,7 @@ O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado h�
 \end{center}
 \end{figure}
 
-Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adotar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuindo as sementes no sentido anti-horário.
+Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde se colocam sementes ou feijões. Existem muitas interpretações das regras deste jogo, pelo que iremos adoptar apenas a que é mais conhecida. Assim, o jogo começa com 4 sementes em cada buraco. Os jogadores jogam alternadamente, e em cada jogada tira-se as sementes de um buraco da nossa linha de jogo e vai-se distribuíndo as sementes no sentido anti-horário.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.5]{oware.jpg}
@@ -64,10 +59,6 @@ Como se pode constatar pela Figura 1, existe um tabuleiro com 2x6 cavidades onde
 \end{center}
 \end{figure}
  \indent Quando distribuirmos a última semente e se colocarmos num buraco do adversário e esse sítio ficar com 2 ou 3 sementes, capturamos essas sementes. O jogo termina quando um jogador capturar 25 sementes ou ambos os dois jogadores capturarem 24 sementes (empate).
-\newpage
-
-%-----------------------------------------------------------------------------------
-%-----------------------------------------------------------------------------------
 
 \subsection{Ilustração de jogadas}
 Nas seguintes ilustrações serão descritas duas situações de jogos fundamentais. Pede-se especial atenção para as ilustrações, dado que é necessário estar atento às situações que descrevem para perceber o jogo.\\
@@ -89,7 +80,7 @@ Nas seguintes ilustrações serão descritas duas situações de jogos fundament
         \end{subfigure}
 \end{figure}
 
-A outra jogada importante é a da captura de sementes, ou seja, quando um jogador ao distribuir a última semente calha numa linha do seu adversário, ficam 2 ou 3 sementes nesse sítio, capturando-as. Atenção que se a meio da distribuição das sementes conseguir este número das mesmas nas cavidades, não as pode capturar, por isso é só na semente final. Destaca-se esta situação dado que existem várias interpretações relativas a esta regra.
+A outra jogada importante é a da captura de sementes, ou seja, quando um jogador ao distribuir a última semente calha numa linha do seu adversário, ficam 2 ou 3 sementes nesse sítio, capturando-as. Atenção que se a meio da distribuição das sementes conseguir este número nas cavidades, não as pode capturar, por isso é só na semente final. Destaca-se esta situação dado que existem várias interpretações relativas a esta regra.
 
 \begin{figure} [H]
         \centering
@@ -109,10 +100,6 @@ A outra jogada importante é a da captura de sementes, ou seja, quando um jogado
 \end{figure}
 
 Pode-se constatar assim a simplicidade do jogo, mas apesar disso requer um componente estratégico para que se possa ganhar, tentando prever-se uma panóplia de jogadas possíveis para vencer o adversário e maximizar as nossas capturas.
-\newpage
-
-%-----------------------------------------------------------------------------------
-%-----------------------------------------------------------------------------------
 
 \section{Representação do Estado do Jogo}
 O tabuleiro é representado por uma lista constituída por duas listas, sendo a primeira a linha do primeiro jogador e a segunda do segundo jogador. De destacar que o tabuleiro é de tamanho constante, apenas variando o valor das sementes em cada posição. O jogo começa com 4 sementes, logo a sua representação no início é:
@@ -122,7 +109,7 @@ O tabuleiro é representado por uma lista constituída por duas listas, sendo a 
 \end{verbatim}
 \end{center}
 
-\indent Se o jogador retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira: 
+\indent Se o jogador 1 (primeira lista) retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira:
  \begin{verbatim}
 [[0,4,4,4,4,4],[5,5,5,5,4,4]]
 \end{verbatim}
@@ -136,13 +123,16 @@ O tabuleiro é representado por uma lista constituída por duas listas, sendo a 
  \begin{verbatim}
 [[0,0,0,0,0,0],[0,0,0,0,0,0]]
 \end{verbatim}
-\newpage
+
+No predicado da Rotina do Jogo, além do estado do tabuleiro, contém também a pontuação de cada jogador.
+
 
 %-----------------------------------------------------------------------------------
 %-----------------------------------------------------------------------------------
+
 
 \section{Representação de um Movimento}
-Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posição para distribuir, alterando depois o tabuleiro e 
+Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posições para distribuir, alterando depois o tabuleiro e 
 verificando se existe possibilidade de captura através de um outro predicado. Após isto, se tiver existido uma captura, os pontos(sementes) do jogador é atualizado.
 
  \begin{verbatim}
@@ -154,11 +144,9 @@ evaluateCapture(Board,WhoPlayed,I)
 addScore(Score,Val,NewScore)
 \end{verbatim}
 
-%-----------------------------------------------------------------------------------
-%-----------------------------------------------------------------------------------
 
 \section{Visualização do Tabuleiro}
-Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logótipo do Jogo e outro para imprimir uma linha de sementes.
+Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logotipo do Jogo e outro para imprimir uma linha de sementes.
 
  \begin{verbatim}
 printBoard([H|[Th|_]],P1Score,P2Score)
@@ -166,22 +154,34 @@ printLogo
 printBoardLine([H|T])
 \end{verbatim}
 
-
 \begin{figure}[h!]
 	\begin{center}
 	\includegraphics[scale=1]{printBoardExample.png}
 	\caption{Começo do jogo}
-	\label{fig:Começo}
+	\label{fig:Comeco}
 	\end{center}
 \end{figure}
 
+\section{Conclusões e Perspectivas de Desenvolvimento}
+\indent A implementação do Oware em termos de estrutura de dados é simples, porém, 
+requer maior esforço na implementação dos predicados que envolvem a distribuição das peças, principalmente o do cálculo da sequência de posições. Existem diversas interpretações das regras e outros nomes para o Oware, por isso tentamos adoptar a versão que é mais conhecida, que já foi aliás implementada em telemóveis.\\
 
-%-----------------------------------------------------------------------------------
-%-----------------------------------------------------------------------------------
+\indent Relativamente ao processo de desenvolvimento de trabalho, iremos adoptar um desenvolvimento iterativo com uma metodologia ágil que é o Scrum. Assim sendo, temos o seguinte Backlog com a estimação dos pontos de esforço, estando ordenado pela prioridade dos itens:
 
-\newpage
-\section{Conclusões e Perspetivas de Desenvolvimento}
-Que conclui da análise do jogo e da pesquisa bibliográfica realizada? Como vai ser desenvolvido o trabalho? Que parte (\%) do trabalho estima que falta fazer?
+\begin{enumerate}
+  \item Representar o tabuleiro numa estrutura [N/A]
+  \item Apresentar o tabuleiro em modo de texto [2 pts]
+  \item Criar funções básicas para listas [2 pts]
+  \item Deve ser possível adicionar e remover sementes na estrutura do tabuleiro [3 pts]
+  \item Implementar o cálculo da sequência aquando de uma distribuição de sementes [3 pts]
+  \item Implementar um predicado para jogar as sementes [5 pts]
+  \item Deve existir um predicado que avalia se há uma captura, devolvendo a posição das sementes [5 pts]
+  \item Implementar um predicado para ler o input do teclado [2 pts]
+  \item Implementar a rotina de jogo [8 pts]
+  \item Deve existir um bot que a deva conseguir determinar que posição das sementes deve jogar a partir da linha do adversário [8 pts]
+\end{enumerate}
+
+Ora assumindo este Backlog e tendo em conta que já implementamos até ao quarto item falta 80\% do esforço deste trabalho, usando uma estimativa mais razoável. Tento em conta isto, não se traduz em horas de trabalho mas sim esforço e ultrapassar dificuldades. Os pontos mais críticos serão a rotina de jogo e a implementação da inteligência artificial do Bot.
 
 \clearpage
 \addcontentsline{toc}{section}{Bibliografia}
@@ -191,7 +191,95 @@ Que conclui da análise do jogo e da pesquisa bibliográfica realizada? Como vai
 
 \newpage
 \appendix
-\section{Nome do Anexo A}
-Código Prolog implementado (representação do estado, cabeçalhos dos predicados de jogada e predicado que permite a visualização simples, em modo de texto, do tabuleiro).
+\section{Código Implementado}
+ \begin{verbatim}
+% Starts the board with the default seeds
+initBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
 
+% Board Visualization
+% Test with: initBoard(B),printBoard(B,0,0).
+printBoardLine([]).
+printBoardLine([H|T]):-
+	write(' ( '),
+	write(H),
+	write(' ) '),
+	printBoardLine(T).
+
+printLogo:-
+	write('\n\n'),
+	write('           _____      ____ _ _ __ ___\n'), 
+	write('          / _ \\ \\ /\\ / / _` |  __/ _ \\ \n'),
+	write('         | (_) \\ V  V / (_| | | |  __/ \n'),
+	write('          \\___/ \\_/\\_/ \\__,_|_|  \\___| \n\n\n').
+	
+printBoard([H|[Th|_]],P1Score,P2Score):-
+	printLogo,
+	write('\n'),
+	write('              Player 1 - Score ['),
+	write(P1Score),
+	write(']\n\n'),
+	write('   /----------------------------------------\\ \n'),
+	write(' / '), printBoardLine(H),write(' \\ \n'),
+	write('|----------------------------------------------|'),
+	write('\n \\ '), printBoardLine(Th), write(' / \n'),
+	write('   \\----------------------------------------/\n\n'),
+	write('              Player 2 - Score ['),
+	write(P2Score),
+	write(']\n\n\n').
+	
+
+% List Core Functions
+replace([_|T],0,X,[X|T]).
+replace([H|T],N,X,[H|T2]):- 
+	N>0, 
+	N1 is N-1,
+	replace(T,N1,X,T2).
+
+element([H|T],0,H).
+element([_|T],N,Val):-
+	N>0,
+	N2 is N-1,
+	element(T,N2,Val).
+
+elementPlus(List,I,Value,NewList):-
+	element(List,I,Oldval),
+	Newval is Oldval+Value,
+	replace(List,I,Newval,NewList).
+	
+elementMinus(List,I,Value,NewList):-
+	element(List,I,Oldval),
+	Newval is Oldval-Value,
+	replace(List,I,Newval,NewList).
+
+% In game functions
+initScore(0).
+addScore(Score,Val,NewScore):-NewScore is Score+Val.
+
+addSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
+	PlayerNum=1,
+	elementPlus(H,I,Seeds,Hnew),
+	Tnew = [Th|Tt];
+	PlayerNum=2,
+	elementPlus(Th,I,Seeds,Tnew),
+	Hnew = H.
+	
+removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
+	PlayerNum=1,
+	elementMinus(H,I,Seeds,Hnew),
+	Tnew = [Th|Tt];
+	PlayerNum=2,
+	elementMinus(Th,I,Seeds,Tnew),
+	Hnew = H.
+		
+% To implement later
+%computeSequence(PlayerNum,I,Seeds,Sequence)
+%playSeeds(Board,PlayerNum,I,NewBoard)
+%evaluateCapture(Board,WhoPlayed,I)
+%gameRoutine(Board,Player1Score,Player2Score):
+
+gameRoutine(_,25,_).
+gameRoutine(_,_,25).
+gameRoutine(_,24,24).
+
+\end{verbatim}
 \end{document}
