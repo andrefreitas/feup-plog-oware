@@ -133,7 +133,7 @@ No predicado da Rotina do Jogo, além do estado do tabuleiro, contém também a 
 
 \section{Representação de um Movimento}
 Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posições para distribuir, alterando depois o tabuleiro e 
-verificando se existe possibilidade de captura através de um outro predicado. Após isto, se tiver existido uma captura, os pontos(sementes) do jogador é atualizado.
+verificando se existe possibilidade de captura através de um outro predicado. Após isto, se tiver existido uma captura, os pontos(sementes) do jogador são atualizados. Os predicados relativos a esta implementação são então os seguintes:
 
  \begin{verbatim}
 playSeeds(Board,PlayerNum,I,NewBoard)
@@ -180,7 +180,7 @@ requer maior esforço na implementação dos predicados que envolvem a distribui
   \item Deve existir um predicado que avalia se há uma captura, devolvendo a posição das sementes [5 pts]
   \item Implementar um predicado para ler o input do teclado [2 pts]
   \item Implementar a rotina de jogo [8 pts]
-  \item Deve existir um bot que a deva conseguir determinar que posição das sementes deve jogar a partir da linha do adversário [8 pts]
+  \item Deve existir um bot que consegue determinar que posição das sementes deve jogar a partir do reconhecimento da linha do adversário [8 pts]
 \end{enumerate}
 
 Ora assumindo este Backlog e tendo em conta que já implementamos até ao quarto item falta 80\% do esforço deste trabalho, usando uma estimativa mais razoável. Tento em conta isto, não se traduz em horas de trabalho mas sim esforço e ultrapassar dificuldades. Os pontos mais críticos serão a rotina de jogo e a implementação da inteligência artificial do Bot.
@@ -211,7 +211,7 @@ Ora assumindo este Backlog e tendo em conta que já implementamos até ao quarto
    \bibitem{Figura 3}
 	Easy Oware
 	2012.
-  \emph{Play the classic strategy game from Africa.}.
+  \emph{Play the classic strategy game from Africa}.
   Acedido a 2 de Outubro de 2012.
   http://itunes.apple.com/br/app/easy-oware/id408219960?mt=8.
 
