@@ -76,8 +76,48 @@ removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 	elementMinus(Th,I,Seeds,Tnew),
 	Hnew = H.
 		
-% To implement later
-%computeSequence(PlayerNum,I,Seeds,Sequence)
+getSeeds(PlayerNum,[H|[Th|_]],I,Seeds):-
+	PlayerNum=1,
+	element(H,I,Seeds);
+	PlayerNum=2,
+	element(Th,I,Seeds).
+	
+	
+% Circular Board, it's like this:
+% [ 5 4 3 2 1 0 ]
+% [ 6 7 8 9 10 11 ]
+
+getSeedsCircular(Board,CircularIndex,Seeds):-
+	getBoardIndex(CircularIndex, PlayerNum, LineIndex),
+	getSeeds(PlayerNum,Board,LineIndex,Seeds).
+
+addSeedsCircular(Board,CircularIndex,Seeds,NewBoard):-
+	getBoardIndex(CircularIndex, PlayerNum, LineIndex),
+	addSeeds(PlayerNum,Board,LineIndex,Seeds,NewBoard).
+	
+removeSeedsCircular(Board,CircularIndex,Seeds,NewBoard):-
+	getBoardIndex(CircularIndex, PlayerNum, LineIndex),
+	removeSeeds(PlayerNum,Board,LineIndex,Seeds,NewBoard).
+	
+getCircularIndex(PlayerNum,I,Index):-
+		PlayerNum =1,
+		Index is 5-I;
+		PlayerNum=2,
+		Index is 6+I.
+		
+getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
+	CircularIndex>11,
+	Index is CircularIndex mod 11 - 1,
+	getBoardIndex(Index,PlayerNum,LineIndex);
+	CircularIndex >5,
+	CircularIndex<12,
+	LineIndex is CircularIndex-6,
+	PlayerNum=2;
+	CircularIndex>=0,
+	CircularIndex<6,
+	LineIndex is 5-CircularIndex,
+	PlayerNum=1.
+
 %playSeeds(Board,PlayerNum,I,NewBoard)
 %evaluateCapture(Board,WhoPlayed,I)
 %gameRoutine(Board,Player1Score,Player2Score):
