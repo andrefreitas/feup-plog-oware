@@ -99,11 +99,11 @@ removeSeedsCircular(Board,CircularIndex,Seeds,NewBoard):-
 	getBoardIndex(CircularIndex, PlayerNum, LineIndex),
 	removeSeeds(PlayerNum,Board,LineIndex,Seeds,NewBoard).
 	
-getCircularIndex(PlayerNum,I,Index):-
+getCircularIndex(PlayerNum,I,CircularIndex):-
 		PlayerNum =1,
-		Index is 5-I;
+		CircularIndex is 5-I;
 		PlayerNum=2,
-		Index is 6+I.
+		CircularIndex is 6+I.
 		
 getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 	CircularIndex>11,
@@ -118,7 +118,29 @@ getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 	LineIndex is 5-CircularIndex,
 	PlayerNum=1.
 
-%playSeeds(Board,PlayerNum,I,NewBoard)
+
+placeSeeds(TempBoard,CircularIndex,1,NewBoard):-
+	addSeedsCircular(TempBoard,CircularIndex,1,Newboard).
+	
+placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard):-
+	addSeedsCircular(TempBoard,CircularIndex,1,Tempboard1),
+	CircularIndex2 is CircularIndex +1,
+	NSeeds is Seeds-1,
+	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard).
+
+playSeeds(Board,PlayerNum,I,NewBoard):-
+	getCircularIndex(PlayerNum,I,CircularIndex),
+	getSeedsCircular(Board,CircularIndex,Seeds),
+	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
+	CircularIndex2 is CircularIndex +1,
+	placeSeeds(TempBoard,CircularIndex2,Seeds,NewBoard).
+
+
+	
+	
+
+
+
 %evaluateCapture(Board,WhoPlayed,I)
 %gameRoutine(Board,Player1Score,Player2Score):
 
