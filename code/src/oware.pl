@@ -65,7 +65,8 @@ addSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 	elementPlus(H,I,Seeds,Hnew),
 	Tnew = [Th|Tt];
 	PlayerNum=2,
-	elementPlus(Th,I,Seeds,Tnew),
+	elementPlus(Th,I,Seeds,T2),
+	Tnew = [T2|[]],
 	Hnew = H.
 	
 removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
@@ -73,7 +74,8 @@ removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
 	elementMinus(H,I,Seeds,Hnew),
 	Tnew = [Th|Tt];
 	PlayerNum=2,
-	elementMinus(Th,I,Seeds,Tnew),
+	elementMinus(Th,I,Seeds,T2),
+	Tnew = [T2|[]],
 	Hnew = H.
 		
 getSeeds(PlayerNum,[H|[Th|_]],I,Seeds):-
@@ -120,22 +122,21 @@ getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 
 
 placeSeeds(TempBoard,CircularIndex,1,NewBoard):-
-	addSeedsCircular(TempBoard,CircularIndex,1,Newboard).
+	addSeedsCircular(TempBoard,CircularIndex,1,NewBoard).
 	
 placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard):-
-	addSeedsCircular(TempBoard,CircularIndex,1,Tempboard1),
-	CircularIndex2 is CircularIndex +1,
-	NSeeds is Seeds-1,
+	addSeedsCircular(TempBoard,CircularIndex,1,TempBoard1),
+	CircularIndex2 is CircularIndex + 1,
+	NSeeds is Seeds - 1,
 	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard).
 
+	
 playSeeds(Board,PlayerNum,I,NewBoard):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,Seeds),
 	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
-	CircularIndex2 is CircularIndex +1,
-	placeSeeds(TempBoard,CircularIndex2,Seeds,NewBoard).
-
-
+	placeSeeds(TempBoard,CircularIndex+1,Seeds,NewBoard).
+	
 	
 	
 
