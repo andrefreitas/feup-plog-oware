@@ -40,7 +40,7 @@ replace([H|T],N,X,[H|T2]):-
 	N1 is N-1,
 	replace(T,N1,X,T2).
 
-element([H|T],0,H).
+element([H|_],0,H).
 element([_|T],N,Val):-
 	N>0,
 	N2 is N-1,
@@ -108,11 +108,11 @@ getCircularIndex(PlayerNum,I,CircularIndex):-
 		CircularIndex is 6+I.
 		
 getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
-	CircularIndex>11,
+	CircularIndex > 11,
 	Index is CircularIndex mod 11 - 1,
 	getBoardIndex(Index,PlayerNum,LineIndex);
-	CircularIndex >5,
-	CircularIndex<12,
+	CircularIndex > 5,
+	CircularIndex < 12,
 	LineIndex is CircularIndex-6,
 	PlayerNum=2;
 	CircularIndex>=0,
@@ -136,13 +136,16 @@ playSeeds(Board,PlayerNum,I,NewBoard):-
 	getSeedsCircular(Board,CircularIndex,Seeds),
 	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
 	placeSeeds(TempBoard,CircularIndex+1,Seeds,NewBoard).
-% Check from here	
+
+	
+	
+	% Check from here	
 
 checkNextValidPlace(PlayerNum,IndexC):-
 	PlayerNum = 1,	
-	IndexC < 6;
+	IndexC > 6;
 	PlayerNum = 2,
-	IndexC < 0.
+	IndexC > 0.
 	
 	
 checkSeeds(Board,IndexC,Seeds):-
@@ -160,15 +163,15 @@ checkValidPlace(PlayerNum,IndexC):-
 	IndexC >= 0.	
 	
 % Evaluate captures and returns t
-captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
+captureSeeds(Board,PlayerNum,IndexC,_,_):-
 	\+ checkValidPlace(PlayerNum,IndexC);
-	\+ checkSeeds(Board,IndexC,Seeds);
+	\+ checkSeeds(Board,IndexC,_);
 	\+ checkNextValidPlace(PlayerNum,IndexC).
 	
 captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
-	checkValidPlace(PlayerNum,IndexC),
-	checkSeeds(Board,IndexC,Seeds),
-	removeSeedsCircular(Board,CircularIndex,Seeds,TmpBoard),	
+	% checkValidPlace(PlayerNum,IndexC),
+	% checkSeeds(Board,IndexC,Seeds),
+	removeSeedsCircular(Board,IndexC,Seeds,TmpBoard),	
 	NewIndexC is IndexC - 1,
 	captureSeeds(TmpBoard,PlayerNum,NewIndexC,NewBoard,TmpScore),
 	Score is TmpScore + Seeds.
