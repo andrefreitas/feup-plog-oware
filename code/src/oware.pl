@@ -121,21 +121,26 @@ getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 	PlayerNum=1.
 
 
-placeSeeds(TempBoard,CircularIndex,1,NewBoard):-
-	addSeedsCircular(TempBoard,CircularIndex,1,NewBoard).
+placeSeeds(TempBoard,CircularIndex,1,NewBoard,FinalIndex):-
+	addSeedsCircular(TempBoard,CircularIndex,1,NewBoard),
+	FinalIndex is CircularIndex.
 	
-placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard):-
+placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
 	addSeedsCircular(TempBoard,CircularIndex,1,TempBoard1),
 	CircularIndex2 is CircularIndex + 1,
 	NSeeds is Seeds - 1,
-	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard).
+	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard,FinalIndex).
 
-	
-playSeeds(Board,PlayerNum,I,NewBoard):-
+% testar mudar valores do player e index 
+% playSeeds([[1,4,1,4,3,1],[2,1,1,6,1,2]],2,3,NewBoard,Score).
+% playSeeds([[1,4,1,4,3,1],[1,1,1,1,1,1]],1,1,NewBoard,Score).
+% playSeeds([[1,3,1,4,3,1],[1,1,1,1,1,1]],1,0,NewBoard,Score).	
+playSeeds(Board,PlayerNum,I,NewBoard,Score):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,Seeds),
 	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
-	placeSeeds(TempBoard,CircularIndex+1,Seeds,NewBoard).
+	placeSeeds(TempBoard,CircularIndex+1,Seeds,TempBoard2,FinalIndex),
+	captureSeeds(TempBoard2,PlayerNum,FinalIndex,NewBoard,Score).
 
 	
 gameRoutine(_,25,_).
@@ -147,6 +152,7 @@ gameRoutine(_,24,24).
 % Capture the Seeds
 % Test Cases:
 % captureSeeds([[2,3,4,5,6,4],[2,2,2,2,2,2]],2,7,NewBoard,Score).
+
 captureSeeds(Board,PlayerNum,IndexC,Board,0):-
 
 	PlayerNum = 2,
