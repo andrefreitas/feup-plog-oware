@@ -138,53 +138,38 @@ playSeeds(Board,PlayerNum,I,NewBoard):-
 	placeSeeds(TempBoard,CircularIndex+1,Seeds,NewBoard).
 
 	
+gameRoutine(_,25,_).
+gameRoutine(_,_,25).
+gameRoutine(_,24,24).
 	
-	% Check from here	
+% Check from here	
+	
+% Capture the Seeds
+% Test Cases:
+% captureSeeds([[2,3,4,5,6,4],[2,2,2,2,2,2]],2,7,NewBoard,Score).
+captureSeeds(Board,PlayerNum,IndexC,Board,0):-
 
-checkNextValidPlace(PlayerNum,IndexC):-
-	PlayerNum = 1,	
-	IndexC > 6;
 	PlayerNum = 2,
-	IndexC > 0.
+	IndexC = -1 ; 
+	PlayerNum = 2,
+	IndexC >= 6 ,
+	IndexC =< 11;
 	
-	
-checkSeeds(Board,IndexC,Seeds):-
-	getSeedsCircular(Board,IndexC,Seeds),
-	Seeds > 1,
-	Seeds < 4.
-	
-	
-checkValidPlace(PlayerNum,IndexC):-
 	PlayerNum = 1,
-	IndexC =< 11,
-	IndexC >= 6;
-	PlayerNum = 2,
-	IndexC =< 5,
-	IndexC >= 0.	
+	IndexC >= 0,
+	IndexC =< 5;
 	
-% Evaluate captures and returns t
-captureSeeds(Board,PlayerNum,IndexC,_,_):-
-	\+ checkValidPlace(PlayerNum,IndexC);
-	\+ checkSeeds(Board,IndexC,_);
-	\+ checkNextValidPlace(PlayerNum,IndexC).
+	getSeedsCircular(Board,IndexC,Seeds),
+	Seeds > 3;
+	
+	getSeedsCircular(Board,IndexC,Seeds),
+	Seeds < 2.
 	
 captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
-	% checkValidPlace(PlayerNum,IndexC),
-	% checkSeeds(Board,IndexC,Seeds),
+	getSeedsCircular(Board,IndexC,Seeds),
 	removeSeedsCircular(Board,IndexC,Seeds,TmpBoard),	
 	NewIndexC is IndexC - 1,
 	captureSeeds(TmpBoard,PlayerNum,NewIndexC,NewBoard,TmpScore),
 	Score is TmpScore + Seeds.
 	
-	
-	
-	
 
-	
-
-%evaluateCapture(Board,WhoPlayed,I)
-%gameRoutine(Board,Player1Score,Player2Score):
-
-gameRoutine(_,25,_).
-gameRoutine(_,_,25).
-gameRoutine(_,24,24).
