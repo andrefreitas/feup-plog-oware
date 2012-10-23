@@ -7,7 +7,7 @@
 %  \____/  \_/\_/ \__,_|_|  \___|
 
 % BY:
-%   André Freitas - ei10???@fe.up.pt
+%   André Freitas - ei10036@fe.up.pt
 %	Rui Goncalves - ei10100@fe.up.pt
 
 
@@ -335,10 +335,18 @@ gameRoutine(_,25,_,_).
 gameRoutine(_,_,25,_).
 gameRoutine(_,24,24,_).
 
+
+% GameRoutine/4
+% It's the main routine of the game
+% Args:
+% Board - The Board list os lists
+% P1Score - Player1 Score
+% P2Score - Player2 Score
+% Turn - it's the player turn (1 or 2)
 gameRoutine(Board,P1Score,P2Score,Turn):-
 	Turn =1,
 	printBoard(Board,P1Score,P2Score),
-	write('Player '),write(Turn), write(' choose [1.-6.]: '),
+	write('Player '),write(Turn), write(' choose [1-6]: '),
 	read(Pos),Pos >0,Pos <7,
 	playSeeds(Board,1,Pos - 1,NewBoard,Score),
 	P1ScoreNew is P1Score + Score,
@@ -346,13 +354,15 @@ gameRoutine(Board,P1Score,P2Score,Turn):-
 
 	Turn =2,
 	printBoard(Board,P1Score,P2Score),
-	write('Player '),write(Turn), write(' choose [1.-6.]: '),
+	write('Player '),write(Turn), write(' choose [1-6]: '),
 	read(Pos),Pos >0,Pos <7,
 	playSeeds(Board,2,Pos - 1,NewBoard,Score),
 	P2ScoreNew is P2Score + Score,
 	gameRoutine(NewBoard,P1Score ,P2ScoreNew,1).
-
 	
+% StartGame/0
+% Call this predicate to start playing the game
+startGame:- initBoard(B),gameRoutine(B,0,0,1).
 	
 
 
