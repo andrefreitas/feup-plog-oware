@@ -288,12 +288,7 @@ playSeeds(Board,PlayerNum,I,NewBoard,Score):-
 	placeSeeds(TempBoard,CircularIndex+1,Seeds,TempBoard2,FinalIndex),
 	captureSeeds(TempBoard2,PlayerNum,FinalIndex,NewBoard,Score).
 
-	
-gameRoutine(_,25,_).
-gameRoutine(_,_,25).
-gameRoutine(_,24,24).
-	
-% Check from here	
+
 	
 % Capture the Seeds
 % Test Cases:
@@ -334,4 +329,32 @@ captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
 	captureSeeds(TmpBoard,PlayerNum,NewIndexC,NewBoard,TmpScore),
 	Score is TmpScore + Seeds.
 	
+	
+	
+gameRoutine(_,25,_,_).
+gameRoutine(_,_,25,_).
+gameRoutine(_,24,24,_).
 
+gameRoutine(Board,P1Score,P2Score,Turn):-
+	Turn =1,
+	printBoard(Board,P1Score,P2Score),
+	write('Player '),write(Turn), write(' choose [1.-6.]: '),
+	read(Pos),Pos >0,Pos <7,
+	playSeeds(Board,1,Pos - 1,NewBoard,Score),
+	P1ScoreNew is P1Score + Score,
+	gameRoutine(NewBoard,P1ScoreNew,P2Score,2);
+
+	Turn =2,
+	printBoard(Board,P1Score,P2Score),
+	write('Player '),write(Turn), write(' choose [1.-6.]: '),
+	read(Pos),Pos >0,Pos <7,
+	playSeeds(Board,2,Pos - 1,NewBoard,Score),
+	P2ScoreNew is P2Score + Score,
+	gameRoutine(NewBoard,P1Score ,P2ScoreNew,1).
+
+	
+	
+
+
+	
+ 
