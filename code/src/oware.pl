@@ -352,6 +352,7 @@ gameRoutine(Board,P1Score,P2Score,Turn):-
 	write('Player '),write(Turn), write(' choose [1-6]: '),
 	read(Pos),Pos >0,Pos <7,
 	playSeeds(Board,1,Pos - 1,NewBoard,Score),
+	\+(NewBoard=Board),
 	P1ScoreNew is P1Score + Score,
 	gameRoutine(NewBoard,P1ScoreNew,P2Score,2);
 
@@ -360,8 +361,11 @@ gameRoutine(Board,P1Score,P2Score,Turn):-
 	write('Player '),write(Turn), write(' choose [1-6]: '),
 	read(Pos),Pos >0,Pos <7,
 	playSeeds(Board,2,Pos - 1,NewBoard,Score),
+	\+(NewBoard=Board),
 	P2ScoreNew is P2Score + Score,
-	gameRoutine(NewBoard,P1Score ,P2ScoreNew,1).
+	gameRoutine(NewBoard,P1Score ,P2ScoreNew,1);
+
+	gameRoutine(Board,P1Score,P2Score,Turn).
 	
 % StartGame/0
 % Call this predicate to start playing the game
