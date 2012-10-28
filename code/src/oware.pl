@@ -71,7 +71,7 @@ printBoard([H|[Th|_]],P1Score,P2Score):-
 % *******************************************************************************
 
 % replace/4
-% Replaces the X value in the N'th position on a list
+% Replaces the n position with X
 % Args:
 % [H|T] - Player board side
 % N - The position on the list
@@ -86,9 +86,6 @@ replace([H|T],N,X,[H|T2]):-
 % element/3
 % Returns the element in the N'th position
 % Args:
-%
-%
-%
 element([H|_],0,H).
 element([_|T],N,Val):-
 	N>0,
@@ -281,6 +278,12 @@ placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
 % I - the starting index
 % NewBoard - the resulting game board
 % Score - the resulting player score.
+playSeeds(Board,PlayerNum,I,Board,Score):-
+	getCircularIndex(PlayerNum,I,CircularIndex),
+	getSeedsCircular(Board,CircularIndex,0). % Case when there are 0 seeds
+
+% Test 0 seeds with B=[[0,0,1,1,1,1],[2,1,0,1,4,6]],playSeeds(B,1,0,Nb,S).
+
 playSeeds(Board,PlayerNum,I,NewBoard,Score):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,Seeds),
