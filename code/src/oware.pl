@@ -278,7 +278,7 @@ placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
 % I - the starting index
 % NewBoard - the resulting game board
 % Score - the resulting player score.
-playSeeds(Board,PlayerNum,I,Board,Score):-
+playSeeds(Board,PlayerNum,I,Board,_):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,0). % Case when there are 0 seeds
 
@@ -333,11 +333,23 @@ captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
 	Score is TmpScore + Seeds.
 	
 	
-	
-gameRoutine(_,25,_,_).
-gameRoutine(_,_,25,_).
-gameRoutine(_,24,24,_).
+%Update Score
+updateScoreandTurn(Turn, Score, P1Score, P2Score, TurnNew, P1ScoreNew, P2ScoreNew):-
+	((Turn =1,
+	P1ScoreNew is P1Score + Score,
+	P2ScoreNew=P2Score);
 
+	(Turn=2,
+	P2ScoreNew is P2Score + Score,
+	P1ScoreNew=P1Score)),
+	TurnNew is Turn mod 2 +1.
+
+% Read user input
+readUserInput(Pos):-
+	(read(Pos),Pos >0,Pos <7);
+
+	write(':( Invalid Position!. Insert again:'),
+	readUserInput(Pos).
 
 % GameRoutine/4
 % It's the main routine of the game
@@ -346,32 +358,42 @@ gameRoutine(_,24,24,_).
 % P1Score - Player1 Score
 % P2Score - Player2 Score
 % Turn - it's the player turn (1 or 2)
+
+gameRoutine(_,P1Score,P2Score,_):-
+	P1Score=24,P1Score=P2Score,
+	write('You Both Win!').
+
+gameRoutine(_,P1Score,P2Score,_):-
+	(P1Score>=25),
+	write('Player 1 Wins!');
+
+	(P2Score>=25),
+	write('Player 2 Wins!').
+
+gameRoutine([H|[Th|Tt]],P1Score,P2Score,Turn):-
+	( 
+		(Turn=1,H=[0,0,0,0,0,0],\+(Th=[0,0,0,0,0,0]));
+		(Turn=2,Th=[0,0,0,0,0,0],\+(H=[0,0,0,0,0,0]))
+	),
+	TurnNew is Turn mod 2 +1,
+	gameRoutine([H|[Th|Tt]],P1Score,P2Score,TurnNew).
+
 gameRoutine(Board,P1Score,P2Score,Turn):-
-	Turn =1,
 	printBoard(Board,P1Score,P2Score),
 	write('Player '),write(Turn), write(' choose [1-6]: '),
-	read(Pos),Pos >0,Pos <7,
-	playSeeds(Board,1,Pos - 1,NewBoard,Score),
-	\+(NewBoard=Board),
-	P1ScoreNew is P1Score + Score,
-	gameRoutine(NewBoard,P1ScoreNew,P2Score,2);
+	readUserInput(Pos),
 
-	Turn =2,
-	printBoard(Board,P1Score,P2Score),
-	write('Player '),write(Turn), write(' choose [1-6]: '),
-	read(Pos),Pos >0,Pos <7,
-	playSeeds(Board,2,Pos - 1,NewBoard,Score),
-	\+(NewBoard=Board),
-	P2ScoreNew is P2Score + Score,
-	gameRoutine(NewBoard,P1Score ,P2ScoreNew,1);
+	(
+		(playSeeds(Board,Turn,Pos - 1,NewBoard,Score),
+	 	\+(NewBoard=Board) ,
+		updateScoreandTurn(Turn,Score,P1Score,P2Score,TurnNew,P1ScoreNew,P2ScoreNew),
+		gameRoutine(NewBoard,P1ScoreNew,P2ScoreNew,TurnNew))
+		
+		;
 
-	gameRoutine(Board,P1Score,P2Score,Turn).
+		gameRoutine(Board,P1Score,P2Score,Turn)
+	).
 	
 % StartGame/0
 % Call this predicate to start playing the game
 startGame:- initBoard(B),gameRoutine(B,0,0,1).
-	
-
-
-	
- 
