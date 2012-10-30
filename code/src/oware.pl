@@ -15,7 +15,7 @@
 % Include modules
 :- consult(owareCLI).
 :- consult(owareBoard).
-
+:- consult(owareAI).
 
 % placeSeeds/5
 % Distribute the seeds from a given position
@@ -33,7 +33,7 @@ placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
 % playSeeds/5
 % Play the seeds from a given position
 % Args: Board, Player Number, Index, NewBoard, Score
-playSeeds(Board,PlayerNum,I,Board,_):-
+playSeeds(Board,PlayerNum,I,Board,0):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,0). % Case when there are 0 seeds
 
@@ -91,42 +91,63 @@ updateScoreandTurn(Turn, Score, P1Score, P2Score, TurnNew, P1ScoreNew, P2ScoreNe
 % GameRoutine/4
 % Here is where the magic goes 
 % Args: Board, Player 1 Score, Player 2 Score, Turn
-
-gameRoutine(_,P1Score,P2Score,_):-
+gameRoutine(_,Player1,Player2,_):-
+	Player1=[_,P1Score],
+	Player2=[_,P2Score],
 	P1Score=24,P1Score=P2Score,
 	write('You Both Win!').
 
-gameRoutine(_,P1Score,P2Score,_):-
-	(P1Score>=25),
-	write('Player 1 Wins!');
+gameRoutine(_,Player1,Player2,_):-
+	Player1=[_,P1Score],
+	Player2=[_,P2Score],
+	(
+		(P1Score>=25),
+		write('Player 1 Wins!');
 
-	(P2Score>=25),
-	write('Player 2 Wins!').
+		(P2Score>=25),
+		write('Player 2 Wins!')
+	).
 
-gameRoutine([H|[Th|Tt]],P1Score,P2Score,Turn):-
+gameRoutine([H|[Th|Tt]],Player1,Player2,Turn):-
 	( 
 		(Turn=1,H=[0,0,0,0,0,0],\+(Th=[0,0,0,0,0,0]));
 		(Turn=2,Th=[0,0,0,0,0,0],\+(H=[0,0,0,0,0,0]))
 	),
 	TurnNew is Turn mod 2 +1,
-	gameRoutine([H|[Th|Tt]],P1Score,P2Score,TurnNew).
+	gameRoutine([H|[Th|Tt]],Player1,Player2,TurnNew).
 
-gameRoutine(Board,P1Score,P2Score,Turn):-
+gameRoutine(Board,Player1,Player2,Turn):-
+	Player1=[P1Type,P1Score],
+	Player2=[P2Type,P2Score],
 	printBoard(Board,P1Score,P2Score),
-	write('Player '),write(Turn), write(' choose [1-6]: '),
-	readUserInput(Pos),
 
+	% User plays
+	write('Player '),write(Turn),
+	isBotThisTurn(Turn,Player1,Player2,IsBot),
 	(
+		IsBot=true,
+		aiPlay(Turn,Board,Pos),
+		write(' bot chosen: '), write(Pos), nl;
+		% else
+		write(' choose [1-6]: '),
+		readUserInput(Pos)
+	),
+
+	% Call the game routine again
+	(
+		% If player played positon with seeds
 		(playSeeds(Board,Turn,Pos - 1,NewBoard,Score),
 	 	\+(NewBoard=Board) ,
 		updateScoreandTurn(Turn,Score,P1Score,P2Score,TurnNew,P1ScoreNew,P2ScoreNew),
-		gameRoutine(NewBoard,P1ScoreNew,P2ScoreNew,TurnNew))
+		Player1New=[P1Type,P1ScoreNew],
+		Player2New=[P2Type,P2ScoreNew],
+		gameRoutine(NewBoard,Player1New,Player2New,TurnNew))
 		
-		;
+		; % else
 
-		gameRoutine(Board,P1Score,P2Score,Turn)
+		gameRoutine(Board,Player1,Player2,Turn)
 	).
 	
 % StartGame/0
 % Call this predicate to start playing the game
-startGame:- initBoard(B),gameRoutine(B,0,0,1).
+startGame(Player1Type,Player2Type):- initBoard(B),gameRoutine(B,[Player1Type,0],[Player2Type,0],1). 

@@ -99,7 +99,7 @@ getSeeds(PlayerNum,[H|[Th|_]],I,Seeds):-
 
 % getCircularIndex/3
 % Converts the player,index to circularIndex
-% Args: Player Number, Index, Circular Index
+% Args: Player Number, Index[0-5], Circular Index
 getCircularIndex(PlayerNum,I,CircularIndex):-
 		PlayerNum =1,
 		CircularIndex is 5-I;
@@ -110,7 +110,7 @@ getCircularIndex(PlayerNum,I,CircularIndex):-
 % Converts the given circular index to player linear index. 
 % This predicate is necessary because the access to the board
 % is continuous in counter clock wise.
-% Args: Circular Index, Player Number, Line Index
+% Args: Circular Index, Player Number, Line Index[0-5]
 getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 	CircularIndex > 11,
 	Index is CircularIndex mod 11 - 1,
