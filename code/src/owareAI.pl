@@ -21,12 +21,13 @@
 aiPlay(PlayerNum,Board,Pos):- 
 	aiTryAll(Board, PlayerNum, ScoreList,0),
 	scoreListGetPos(ScoreList,1,Pos,MaxScore),
-	MaxScore>0;
-	%else
-	write('Antes do Choose Position'),
-	choosePositionWithSeeds(PlayerNum,Board,Pos),
-	write('Depois do Choose position').
+	getSeeds(PlayerNum,Board,Pos-1,Seeds),
+	write('Seeds: '), write(Seeds),
+	Seeds >0. % BUG: se as seeds são 0, isto congela!!!!!
+	%write('Choose Position:'),
+	%choosePositionWithSeeds(PlayerNum,Board,Pos).
 
+%Bug:  B=[[1,0,5,5,5,5],[6,6,6,5,4,0]],aiPlay(2,B,Pos).
 
 % aiTryAll/4
 % Try all the possible positions and put the scores in the list
@@ -93,7 +94,8 @@ choosePositionWithSeeds(_,Board,Pos):-
 	).
 
 choosePositionWithSeeds(PlayerNum,Board,Pos):-
-	Board=[H,[Th|_]],
+	write('Eu estou aqui'),
+	Board=[H|[Th|_]],
 	(
 		PlayerNum=1,
 		findNonZeroElement(H,0,Index);
@@ -102,7 +104,7 @@ choosePositionWithSeeds(PlayerNum,Board,Pos):-
 		write('Antes do find zero'),
 		findNonZeroElement(Th,0,Index)
 	),
-	Pos=Index+1.
+	Pos is Index+1.
 	
 % findNonZeroElement/2
 % Finds an element that is greater than zero
@@ -113,3 +115,4 @@ findNonZeroElement([H|T],N,Index):-
 	NewN is N+1,
 	findNonZeroElement(T,NewN,Index).
 
+test(Pos):-Pos>0.
