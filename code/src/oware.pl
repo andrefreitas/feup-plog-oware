@@ -17,62 +17,6 @@
 :- consult(owareBoard).
 :- consult(owareAI).
 
-% placeSeeds/5
-% Distribute the seeds from a given position
-% Args: Board, Circular Index, Seeds, NewBoard, Final Circular Index
-placeSeeds(TempBoard,CircularIndex,1,NewBoard,FinalIndex):-
-	addSeedsCircular(TempBoard,CircularIndex,1,NewBoard),
-	FinalIndex is CircularIndex.	
-
-placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
-	addSeedsCircular(TempBoard,CircularIndex,1,TempBoard1),
-	CircularIndex2 is CircularIndex + 1,
-	NSeeds is Seeds - 1,
-	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard,FinalIndex).
-
-% playSeeds/5
-% Play the seeds from a given position
-% Args: Board, Player Number, Index, NewBoard, Score
-playSeeds(Board,PlayerNum,I,Board,0):-
-	getCircularIndex(PlayerNum,I,CircularIndex),
-	getSeedsCircular(Board,CircularIndex,0). % Case when there are 0 seeds
-
-playSeeds(Board,PlayerNum,I,NewBoard,Score):-
-	getCircularIndex(PlayerNum,I,CircularIndex),
-	getSeedsCircular(Board,CircularIndex,Seeds),
-	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
-	placeSeeds(TempBoard,CircularIndex+1,Seeds,TempBoard2,FinalIndex),
-	captureSeeds(TempBoard2,PlayerNum,FinalIndex,NewBoard,Score).
-
-% captureSeeds/5
-% By giving the last position, the predicate capture the seeds in the oposite 
-% way and compute the score.
-% Args: Board, PlayerNum, Last Circular Index, NewBoard, Score
-captureSeeds(Board,PlayerNum,IndexC,Board,0):-
-
-	PlayerNum = 2,
-	IndexC = -1 ; 
-	PlayerNum = 2,
-	IndexC >= 6 ,
-	IndexC =< 11;
-	
-	PlayerNum = 1,
-	IndexC >= 0,
-	IndexC =< 5;
-	
-	getSeedsCircular(Board,IndexC,Seeds),
-	Seeds > 3;
-	
-	getSeedsCircular(Board,IndexC,Seeds),
-	Seeds < 2.
-	
-captureSeeds(Board,PlayerNum,IndexC,NewBoard,Score):-
-	getSeedsCircular(Board,IndexC,Seeds),
-	removeSeedsCircular(Board,IndexC,Seeds,TmpBoard),	
-	NewIndexC is IndexC - 1,
-	captureSeeds(TmpBoard,PlayerNum,NewIndexC,NewBoard,TmpScore),
-	Score is TmpScore + Seeds.
-	
 	
 % updateScoreandTurn/7
 % Updates the user score and the player turn
