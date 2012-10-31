@@ -16,7 +16,7 @@
 :- consult(owareCLI).
 :- consult(owareBoard).
 :- consult(owareAI).
-
+:-use_module(library(system)).
 	
 % updateScoreandTurn/7
 % Updates the user score and the player turn
@@ -41,15 +41,15 @@ gameRoutine(_,Player1,Player2,_):-
 	P1Score=24,P1Score=P2Score,
 	write('You Both Win!').
 
-gameRoutine(_,Player1,Player2,_):-
+gameRoutine(Board,Player1,Player2,_):-
 	Player1=[_,P1Score],
 	Player2=[_,P2Score],
 	(
 		(P1Score>=25),
-		write('Player 1 Wins!');
+		write('\nPlayer 1 Wins!');
 
 		(P2Score>=25),
-		write('Player 2 Wins!')
+		write('\nPlayer 2 Wins!')
 	).
 
 gameRoutine([H|[Th|Tt]],Player1,Player2,Turn):-
@@ -58,6 +58,8 @@ gameRoutine([H|[Th|Tt]],Player1,Player2,Turn):-
 		(Turn=2,Th=[0,0,0,0,0,0],\+(H=[0,0,0,0,0,0]))
 	),
 	TurnNew is Turn mod 2 +1,
+	write('\nYou have no seeds to play :( going to next player...\n'),
+	sleep(1),
 	gameRoutine([H|[Th|Tt]],Player1,Player2,TurnNew).
 
 gameRoutine(Board,Player1,Player2,Turn):-
@@ -71,7 +73,7 @@ gameRoutine(Board,Player1,Player2,Turn):-
 	(
 		IsBot=true,
 		aiPlay(Turn,Board,Pos),
-		write(' bot chosen: '), write(Pos), nl;
+		write(' bot chosen: '), write(Pos), nl,sleep(1);
 		% else
 		write(' choose [1-6]: '),
 		readUserInput(Pos)
@@ -88,7 +90,6 @@ gameRoutine(Board,Player1,Player2,Turn):-
 		gameRoutine(NewBoard,Player1New,Player2New,TurnNew))
 		
 		; % else
-
 		gameRoutine(Board,Player1,Player2,Turn)
 	).
 	
