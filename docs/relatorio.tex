@@ -109,29 +109,46 @@ Ora, como referido anteriormente, o sistema é decomposto em módulos o que perm
   \item owareBoard.pl - contém os predicados para manipular e aceder à estrutura do tabuleiro;
   \item owareCLI.pl - alberga os predicados que interagem na consola de texto com o utilizador;
   \item owareAI.pl - módulo que contém os predicados para os bots;
-  \item owareTest.pl - módulo onde se colocam testes que sejam pertinentes;
+  \item owareTest.pl - módulo que possui testes considerados pertinentes;
+\end{enumerate}
+Destaca-se a atenção na análise do código dos predicados gameRoutine, aiPlay e playSeeds, que são o ponto de partida para a compreensão da implementação do jogo.
+\subsection*{Visualizador 3D}
+Para a implementação com o visualizador 3D, será criado um módulo que terá o nome "owareServer.pl", usando a comunicação por socket do Sicstus com o seguinte protocolo:
+\begin{verbatim}
+     +----------------+                            +----------------+
+     |   LAIG APP     |   beginGame human bot2     |  Oware Server  |
+     |----------------|+-------------------------->|----------------|
+     |                |                      ack   |                |
+     |                |<--------------------------+|                |
+     |                |                            |                |
+     |                |                            |                |
+     |                |              playerTurn 1  |                |
+     |                |<--------------------------+|                |
+     |                |  gameStatus (board) 1 2    |                |
+     |      C++       |<--------------------------+|     Prolog     |
+     |                |  playerChooses 1           |                |
+     |                |+-------------------------->|                |
+     |                |                            |                |
+     |                |                            |                |
+     |                |                            |                |
+     |                |      endGame victory 1     |                |
+     |                |<--------------------------+|                |
+     +----------------+                            +----------------+
+\end{verbatim}
+Assim sendo, a linguagem das mensagens, é a seguinte:
+\begin{enumerate}
+\item beginGame (player1Type) (player2Type) - indica a informação para iniciar o jogo;
+\item ack - confirma o início do jogo;
+\item playerTurn (1 or 2) - indica qual é o jogador que vai jogar;
+\item gameStatus (board) (player1 score) (player2 score) - indica o estado do jogo;
+\item playerChoose (1-6) - indica qual a posicao a jogar;
+\item endGame (victory (1 or 2)) or (draw) - sinaliza o fim do jogo.
 \end{enumerate}
 
-
-%-----------------------------------------------------------------------------------
-%-----------------------------------------------------------------------------------
+Dado que as mensagens que são passadas entre os sistema são relativamente simples, este formato é suficiente, porém, se se tratasse de um sistema que necessitasse de algo mais complexo, faria todo o sentido usar um formato para representar estruturas de dados como JSON, pois do lado da aplicação de LAIG em C++ existem bibliotecas para tal.
 
 
-\section{Representação de um Movimento}
-Tal como constatado anteriormente, o jogo apenas tem uma jogada, que é a distribuição de sementes. Se dessa distribuição resultar na última posição 2 ou 3 sementes é feita uma captura. Assim sendo, existe um predicado para distribuir sementes, que por sua vez chama outro predicado que calcula a sequência de posições para distribuir, alterando depois o tabuleiro e 
-verificando se existe possibilidade de captura através de um outro predicado. Após isto, se tiver existido uma captura, os pontos(sementes) do jogador são atualizados. Os predicados relativos a esta implementação são então os seguintes:
-
- \begin{verbatim}
-playSeeds(Board,PlayerNum,I,NewBoard)
-computeSequence(PlayerNum,I,Seeds,Sequence)
-removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew])
-addSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew])
-evaluateCapture(Board,WhoPlayed,I)
-addScore(Score,Val,NewScore)
-\end{verbatim}
-
-
-\section{Visualização do Tabuleiro}
+\section{Interface com o Utilizador}
 Para a visualização do tabuleiro são usados três predicados: um principal para representar a totalidade do tabuleiro, um para apresentar o logótipo do Jogo e outro para imprimir uma linha de sementes.
 
  \begin{verbatim}
@@ -207,93 +224,5 @@ Ora assumindo este Backlog e tendo em conta que já implementamos até ao quarto
 \appendix
 \section{Código Implementado}
  \begin{verbatim}
-% Starts the board with the default seeds
-initBoard([[4,4,4,4,4,4],[4,4,4,4,4,4]]).
-
-% Board Visualization
-% Test with: initBoard(B),printBoard(B,0,0).
-printBoardLine([]).
-printBoardLine([H|T]):-
-	write(' ( '),
-	write(H),
-	write(' ) '),
-	printBoardLine(T).
-
-printLogo:-
-	write('\n\n'),
-	write('           _____      ____ _ _ __ ___\n'), 
-	write('          / _ \\ \\ /\\ / / _` |  __/ _ \\ \n'),
-	write('         | (_) \\ V  V / (_| | | |  __/ \n'),
-	write('          \\___/ \\_/\\_/ \\__,_|_|  \\___| \n\n\n').
-	
-printBoard([H|[Th|_]],P1Score,P2Score):-
-	printLogo,
-	write('\n'),
-	write('              Player 1 - Score ['),
-	write(P1Score),
-	write(']\n\n'),
-	write('   /----------------------------------------\\ \n'),
-	write(' / '), printBoardLine(H),write(' \\ \n'),
-	write('|----------------------------------------------|'),
-	write('\n \\ '), printBoardLine(Th), write(' / \n'),
-	write('   \\----------------------------------------/\n\n'),
-	write('              Player 2 - Score ['),
-	write(P2Score),
-	write(']\n\n\n').
-	
-
-% List Core Functions
-replace([_|T],0,X,[X|T]).
-replace([H|T],N,X,[H|T2]):- 
-	N>0, 
-	N1 is N-1,
-	replace(T,N1,X,T2).
-
-element([H|T],0,H).
-element([_|T],N,Val):-
-	N>0,
-	N2 is N-1,
-	element(T,N2,Val).
-
-elementPlus(List,I,Value,NewList):-
-	element(List,I,Oldval),
-	Newval is Oldval+Value,
-	replace(List,I,Newval,NewList).
-	
-elementMinus(List,I,Value,NewList):-
-	element(List,I,Oldval),
-	Newval is Oldval-Value,
-	replace(List,I,Newval,NewList).
-
-% In game functions
-initScore(0).
-addScore(Score,Val,NewScore):-NewScore is Score+Val.
-
-addSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
-	PlayerNum=1,
-	elementPlus(H,I,Seeds,Hnew),
-	Tnew = [Th|Tt];
-	PlayerNum=2,
-	elementPlus(Th,I,Seeds,Tnew),
-	Hnew = H.
-	
-removeSeeds(PlayerNum,[H|[Th|Tt]],I,Seeds,[Hnew|Tnew]):-
-	PlayerNum=1,
-	elementMinus(H,I,Seeds,Hnew),
-	Tnew = [Th|Tt];
-	PlayerNum=2,
-	elementMinus(Th,I,Seeds,Tnew),
-	Hnew = H.
-		
-% To implement later
-%computeSequence(PlayerNum,I,Seeds,Sequence)
-%playSeeds(Board,PlayerNum,I,NewBoard)
-%evaluateCapture(Board,WhoPlayed,I)
-%gameRoutine(Board,Player1Score,Player2Score):
-
-gameRoutine(_,25,_).
-gameRoutine(_,_,25).
-gameRoutine(_,24,24).
-
 \end{verbatim}
 \end{document}
