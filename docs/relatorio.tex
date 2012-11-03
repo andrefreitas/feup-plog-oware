@@ -12,7 +12,7 @@
 \setlength{\textheight}{22cm}
 
 \title{\Huge\textbf{Implementação em Prolog do Jogo Oware}\linebreak\linebreak\linebreak
-\Large\textbf{Relatório Intercalar}\linebreak\linebreak
+\Large\textbf{Relatório Final}\linebreak\linebreak
 \includegraphics[height=6cm, width=7cm]{feup.pdf}\linebreak \linebreak
 \Large{Mestrado Integrado em Engenharia Informática e Computação} \linebreak \linebreak
 \Large{Programação em Lógica}\linebreak
@@ -26,7 +26,8 @@
 \thispagestyle{empty}
 \newpage
 \section*{Resumo}
-Este relatório tem o objetivo de descrever a fase inicial da implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.
+Este relatório tem o objetivo de descrever a implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.\\
+O jogo foi implementado com recurso a listas para representar o tabuleiro e para representar as propriedades dos jogadores, estando organizando em módulos de manipulação do tabuleiro, rotinas de jogo, inteligência artificial, interfaces e predicados de teste. Existem 2 níveis de bots que jogam, respectivamente, aleatoriamente e com base numa heurística.
 
 %************************************************************************************************
 %************************************************************************************************
@@ -36,8 +37,8 @@ Este relatório tem o objetivo de descrever a fase inicial da implementação do
 
 \section{Introdução}
 Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
-\indent A implementação será em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente das funcionalidades. \\
-\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro e os aspetos de desenvolvimento do projeto.
+\indent A implementação em questão é em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente das funcionalidades. \\
+\indent Neste documento pretende-se apresentar a descrição do problema, a representação dos estados do jogo em estruturas conhecidas em Prolog, a representação das jogadas, a visualização do tabuleiro, a inteligência artificial e os aspetos de desenvolvimento do projeto.
 
 \section{Descrição do Problema}
 O Oware é dos jogos de tabuleiro mais antigos do mundo, tendo sido inventado há mais de 7 mil anos. É jogado por todo o Globo e não existem certezas relativamente à sua origem, porém, atribui-se a sua autoria tradicionalmente ao continente Africano. Atualmente é o jogo mais popular na República do Gana sendo um fenómeno nacional.
@@ -101,30 +102,15 @@ A outra jogada importante é a da captura de sementes, ou seja, quando um jogado
 
 Pode-se constatar assim a simplicidade do jogo, mas apesar disso requer um componente estratégico para que se possa ganhar, tentando prever-se uma panóplia de jogadas possíveis para vencer o adversário e maximizar as nossas capturas.
 
-\section{Representação do Estado do Jogo}
-O tabuleiro é representado por uma lista constituída por duas listas, sendo a primeira a linha do primeiro jogador e a segunda do segundo jogador. De destacar que o tabuleiro é de tamanho constante, apenas variando o valor das sementes em cada posição. O jogo começa com 4 sementes, logo a sua representação no início é:
-\begin{center}
-\begin{verbatim}
-[[4,4,4,4,4,4],[4,4,4,4,4,4]]
-\end{verbatim}
-\end{center}
-
-\indent Se o jogador 1 (primeira lista) retirar as sementes da posição 0, ao distribuí-las no sentido anti-horário o tabuleiro fica da seguinte maneira:
- \begin{verbatim}
-[[0,4,4,4,4,4],[5,5,5,5,4,4]]
-\end{verbatim}
-
-\indent No caso de um dos jogadores atingir uma pontuação igual ou superior a 25 esse jogador ganha o jogo pois capturou mais de metade das sementes em jogo, Por exemplo:
- \begin{verbatim}
-[[0,5,0,3,0,0],[0,0,0,4,8,4]]
-\end{verbatim} 
-
-\indent Num jogo de Oware também é possível, mas pouco provável, empatar pois se os dois jogadores atingirem os 24 pontos todas as sementes em jogo foram capturadas.
- \begin{verbatim}
-[[0,0,0,0,0,0],[0,0,0,0,0,0]]
-\end{verbatim}
-
-No predicado da Rotina do Jogo, além do estado do tabuleiro, contém também a pontuação de cada jogador.
+\section{Arquitectura do Sistema}
+Ora, como referido anteriormente, o sistema é decomposto em módulos o que permite um melhor isolamento no desenvolvimento e manutenção futura do código. Assim sendo, os módulos são os seguintes:
+\begin{enumerate}
+  \item oware.pl - possui todos os predicados inerentes à rotina de jogo;
+  \item owareBoard.pl - contém os predicados para manipular e aceder à estrutura do tabuleiro;
+  \item owareCLI.pl - alberga os predicados que interagem na consola de texto com o utilizador;
+  \item owareAI.pl - módulo que contém os predicados para os bots;
+  \item owareTest.pl - módulo onde se colocam testes que sejam pertinentes;
+\end{enumerate}
 
 
 %-----------------------------------------------------------------------------------
