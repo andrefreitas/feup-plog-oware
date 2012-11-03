@@ -24,3 +24,10 @@ testVictoryPlayer2:- B=[[0,4,2,1,1,0],[1,0,7,0,0,0]],gameRoutine(B,[human,12],[h
 testPlayer1CantPlay:- B=[[4,0,0,0,0,0],[0,0,0,4,5,3]],gameRoutine(B,[human,20],[human,12],1).
 testPlayer2CantPlay:- B=[[0,0,0,4,5,3],[4,0,0,0,0,0]],gameRoutine(B,[human,12],[human,20],2).
 
+% Test smart bot
+% Instructions: the position should be allways 6 because it the one that have more score
+testBotIsSmart:- aiPlay(1,[[0,2,0,0,0,7],[1,2,3,4,5,6]],Pos,bot2).
+
+% Test dumb bot
+% Instructions: the positions should be 2 or 6 because it can't compute the max score
+testBotIsDumb:- aiPlay(1,[[0,2,0,0,0,7],[1,2,3,4,5,6]],Pos,bot1).

@@ -34,21 +34,20 @@
 % The Computer Plays trying to have the best score at each stage
 % Args: Player Number, Board, Position[1-6]
 aiPlay(PlayerNum,Board,Pos,BotType):-
+	% If it's level 1 bot
 	BotType = bot1,
 	stupidBot(PlayerNum,Board,Pos);
+
+	% If it's level 2 bot
 	BotType = bot2,
-	aiTryAll(Board, PlayerNum, ScoreList,0),
-	scoreListGetPos(ScoreList,1,TmpPos,MaxScore),
-		
-		MaxScore = 0,
-		stupidBot(PlayerNum,Board,RandPos),
-		Pos is RandPos
-	;%else
-	NewPos is TmpPos -1,
-	getSeeds(PlayerNum,Board,NewPos,Seeds),
-	Seeds >0,
-	Pos is TmpPos; 
-	choosePositionWithSeeds(PlayerNum,Board,Pos).
+	(
+		aiTryAll(Board, PlayerNum, ScoreList,0),
+		scoreListGetPos(ScoreList,1,Pos,MaxScore),
+		MaxScore > 0
+	);
+	aiPlay(PlayerNum,Board,Pos,bot1).
+
+	
 
 % aiTryAll/4
 % Try all the possible positions and put the scores in the list
@@ -94,13 +93,13 @@ isBotThisTurn(Turn,Player1,Player2,Bool):-
 	(
 		Turn=1,
 		(
-			P1Type=bot,
+			(P1Type=bot1; P1Type=bot2),
 			Bool=true;
 			Bool=false
 		);
 		Turn=2,
 		(
-			P2Type=bot,
+			(P2Type=bot1; P2Type=bot2),
 			Bool=true;
 			Bool=false
 		)
@@ -139,12 +138,9 @@ findNonZeroElement([H|T],N,Index):-
 %stupidBot/3
 %dah it's a stupid bot! it just picks a random from 1 to 6
 stupidBot(PlayerNum,Board,Pos):-	
-	random(1,7,TmpPos),
-	(
-	write(TmpPos),
-	Tmp2 is TmpPos - 1,
-	getSeeds(PlayerNum,Board,Tmp2,Seeds),
-	Seeds >0,
-	Pos is TmpPos
-	);
+	random(1,7,Pos),
+	Index is Pos - 1,
+	getSeeds(PlayerNum,Board,Index,Seeds),
+	Seeds >0;
+	% seeds are >0 or calls again
 	stupidBot(PlayerNum,Board,Pos).
