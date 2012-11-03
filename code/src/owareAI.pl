@@ -6,6 +6,20 @@
 % | |__| |\ V  V / (_| | | |  __/
 %  \____/  \_/\_/ \__,_|_|  \___| Artificial Intelligence
 %
+%              _/       \_
+%             / |       | \
+%            /  |__   __|  \
+%           |__/((o| |o))\__|
+%           |      | |      |
+%           |\     |_|     /| 
+%           | \           / |  Look at me, i can compute and stuff...
+%            \| /  ___  \ |/
+%             \ | / _ \ | /
+%              \_________/
+%               _|_____|_
+%          ____|_________|____
+%          /                   \ 
+%
 % Authors:
 % 		André Freitas - ei10036@fe.up.pt
 %		Rui Goncalves - ei10100@fe.up.pt
@@ -14,16 +28,26 @@
 
 % Include modules
 :- consult(owareBoard).
+:- use_module(library(random)).
 
-% aiPlay/3
+% aiPlay/4
 % The Computer Plays trying to have the best score at each stage
 % Args: Player Number, Board, Position[1-6]
-aiPlay(PlayerNum,Board,Pos):-
+aiPlay(PlayerNum,Board,Pos,BotType):-
+	BotType = bot1,
+	stupidBot(PlayerNum,Board,Pos);
+	BotType = bot2,
 	aiTryAll(Board, PlayerNum, ScoreList,0),
-	scoreListGetPos(ScoreList,1,Pos,_),
-	NewPos is Pos -1,
+	scoreListGetPos(ScoreList,1,TmpPos,MaxScore),
+		
+		MaxScore = 0,
+		stupidBot(PlayerNum,Board,RandPos),
+		Pos is RandPos
+	;%else
+	NewPos is TmpPos -1,
 	getSeeds(PlayerNum,Board,NewPos,Seeds),
-	Seeds >0; 
+	Seeds >0,
+	Pos is TmpPos; 
 	choosePositionWithSeeds(PlayerNum,Board,Pos).
 
 % aiTryAll/4
@@ -92,7 +116,7 @@ choosePositionWithSeeds(_,Board,Pos):-
 	).
 
 choosePositionWithSeeds(PlayerNum,Board,Pos):-
-	write('Eu estou aqui'),
+	%write('Eu estou aqui'),
 	Board=[H|[Th|_]],
 	(
 		PlayerNum=1,
@@ -111,3 +135,16 @@ findNonZeroElement([H|T],N,Index):-
 	% Else
 	NewN is N+1,
 	findNonZeroElement(T,NewN,Index).
+
+%stupidBot/3
+%dah it's a stupid bot! it just picks a random from 1 to 6
+stupidBot(PlayerNum,Board,Pos):-	
+	random(1,7,TmpPos),
+	(
+	write(TmpPos),
+	Tmp2 is TmpPos - 1,
+	getSeeds(PlayerNum,Board,Tmp2,Seeds),
+	Seeds >0,
+	Pos is TmpPos
+	);
+	stupidBot(PlayerNum,Board,Pos).
