@@ -76,12 +76,12 @@ gameRoutine(Board,Player1,Player2,Turn):-
 	isBotThisTurn(Turn,Player1,Player2,IsBot),
 	whoPlaysNow(Turn,Player1,Player2,PlaysNow),
 	PlaysNow=[PlayerType,_],
+	write('Player '),write(Turn),
 	(
 		IsBot=true,
 		aiPlay(Turn,Board,Pos,PlayerType),
-		write('\nBot chosen: '), write(Pos), nl,sleep(1);
+		write(' bot chosen: '), write(Pos), nl,sleep(1);
 		% else
-		write('Player '),write(Turn),
 		write(' choose [1-6]: '),
 		readUserInput(Pos)
 	),
