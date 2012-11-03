@@ -29,6 +29,8 @@ testPlayer2CantPlay:- B=[[0,0,0,4,5,3],[4,0,0,0,0,0]],gameRoutine(B,[human,12],[
 testBotIsSmart1(Pos):- aiPlay(1,[[0,2,0,0,0,7],[1,2,3,4,5,6]],Pos,bot2).
 % Instructions: the position should be allways 2 because it the one that have more score
 testBotIsSmart2(Pos):- aiPlay(2,[[1,1,1,1,1,1],[0,7,0,0,2,0]],Pos,bot2).
+% Instructions: you should expect 5
+testBotIsSmartButCantScore(Pos):-aiPlay(1,[[0,0,0,0,1,2],[0,1,2,3,4,5]],Pos,bot2).
 
 % Test dumb bot
 % Instructions: the positions should be 2 or 6 because it can't compute the max score

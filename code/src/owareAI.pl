@@ -43,8 +43,9 @@ aiPlay(PlayerNum,Board,Pos,BotType):-
 	(
 		aiTryAll(Board, PlayerNum, ScoreList,0),
 		scoreListGetPos(ScoreList,1,Pos,MaxScore),
-		MaxScore > 0
+		MaxScore>0
 	);
+	%write('Going random...\n'),
 	aiPlay(PlayerNum,Board,Pos,bot1).
 
 	
