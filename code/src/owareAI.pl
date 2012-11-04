@@ -38,7 +38,7 @@ aiPlay(PlayerNum,Board,Pos,BotType):-
 	BotType = bot1,
 	stupidBot(PlayerNum,Board,Pos);
 
-	% If it's level 2 bot
+	% If it's level 2 bot and score
 	BotType = bot2,
 	(
 		aiTryAll(Board, PlayerNum, ScoreList,0),
