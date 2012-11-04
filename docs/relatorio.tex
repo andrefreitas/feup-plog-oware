@@ -117,7 +117,7 @@ Ora, como referido anteriormente, o sistema é decomposto em módulos o que perm
   \item owareTest.pl - módulo que possui testes considerados pertinentes;
 \end{enumerate}
 
-\indent Destaca-se a atenção na análise do código dos predicados gameRoutine, aiPlay e playSeeds, que são o ponto de partida para a compreensão da implementação geral deste projecto.
+\indent Destaca-se a atenção na análise do código dos predicados gameRoutine, aiPlay e playSeeds, que são o ponto de partida para a compreensão da implementação geral deste projeto.
 
 \indent Para começar o jogo, basta fazer uma consulta ao ficheiro oware.pl e invocar o predicado startGame que recebe 2 parâmetros, que são os tipos do jogador 1 e 2, que podem ser human, bot1 ou bot2. Assim sendo, se pretende um jogo entre um humano e um bot de nível 2, será startGame(human,bot2), começando o primeiro jogador a jogar, visto que o turn é invocado com o valor 1 dentro do predicado startGame. 
 
@@ -160,7 +160,7 @@ Assim sendo, a sintaxe das mensagens, é a seguinte:
 Dado que as mensagens que são passadas entre os sistema são relativamente simples, este formato é suficiente, porém, se se tratasse de um sistema que necessitasse de algo mais complexo, faria todo o sentido usar um formato para representar estruturas de dados como JSON, pois do lado da aplicação de LAIG em C++ existem bibliotecas para tal.
 
 \section{Módulo de Lógica do Jogo}
-Como descrito anteriormente, o projecto foi implementado em módulos para as diferentes camadas do jogo Oware. Nesta secção serão apresentada as soluções que desenvolvemos relativa sa cada componente lógica do jogo.
+Como descrito anteriormente, o projeto foi implementado em módulos para as diferentes camadas do jogo Oware. Nesta secção serão apresentada as soluções que desenvolvemos relativamente a cada componente lógica do jogo.
 
 \subsection{Representação do Estado do Jogo}
 Ora, todos os jogos possuem o ciclo, sendo o jogo representado em cada iteração por estruturas conhecidas. Assim, existe a lista que representa o tabuleiro e cada jogador tem uma lista que possui o tipo de jogador(human, bot1,bot2) e a sua pontuação. Um exemplo possível de um estado de jogo é o seguinte:
@@ -176,7 +176,7 @@ Ora o estado do jogo é visualizado pelo utilizador em modo de texto ou pelo vis
 
 
 \subsection{Manipulação das Sementes do Tabuleiro}
-O "core" deste projecto na abstracção do acesso ao tabuleiro, foi a implementação de processos inteligentes para aceder ao mesmo. Existem então duas maneiras de aceder às sementes. A primeira é pela indicação do número do jogador e o índice de 0 a 5 que corresponde à posição da sua linha no tabuleiro. A segunda forma e a que tornou o processo de distribuição de sementes extremamente fácil é o acesso pelo índice circular, implementando um acesso circular às listas. Assim, as posições circulares no tabuleiro são:
+O "core" deste projeto na abstração do acesso ao tabuleiro, foi a implementação de processos inteligentes para aceder ao mesmo. Existem então duas maneiras de aceder às sementes. A primeira é pela indicação do número do jogador e o índice de 0 a 5 que corresponde à posição da sua linha no tabuleiro. A segunda forma e a que tornou o processo de distribuição de sementes extremamente fácil é o acesso pelo índice circular, implementando um acesso circular às listas. Assim, as posições circulares no tabuleiro são:
 \begin{verbatim}
 [5,4,3,2,1,0]
 [6,7,8,9,10,11]
@@ -199,7 +199,7 @@ playSeeds([[1,0,7,0,0,0],[0,4,2,1,1,0]],1,2,[[2,1,0,0,0,0],[1,5,0,0,0,0]],7).
 \end{verbatim}
 
 \subsection{Jogadas Válidas}
-Ora, o jogador pode jogar todas as posições da sua linha do tabuleiro, exceptuando quando a posição escolhida não ter sementes. Se tal acontecer, dado que existe um predicado para obter as sementes de uma posição, o programa simplesmente pede de novo uma posição ao jogador. Assim sendo, não se torna útil neste tipo de jogo de tabuleiro, com uma restrição muito simples, criar um predicado que a partir de um tabuleiro devolva as jogadas válidas. Acresce ainda o facto de que, se na linha do tabuleiro do jogador em questão, todas as posições não tiverem sementes, o jogo cede a vez ao próximo jogador até que existe pelo menos 1 semente para jogar. 
+Ora, o jogador pode jogar todas as posições da sua linha do tabuleiro, exceto quando a posição escolhida não ter sementes. Se tal acontecer, dado que existe um predicado para obter as sementes de uma posição, o programa simplesmente pede de novo uma posição ao jogador. Assim sendo, não se torna útil neste tipo de jogo de tabuleiro, com uma restrição muito simples, criar um predicado que a partir de um tabuleiro devolva as jogadas válidas. Acresce ainda o facto de que, se na linha do tabuleiro do jogador em questão, todas as posições não tiverem sementes, o jogo cede a vez ao próximo jogador até que existe pelo menos 1 semente para jogar. 
 
 
 \subsection{Final do Jogo}
@@ -225,7 +225,7 @@ gameRoutine(_,Player1,Player2,_):-
 
 \subsection{Cálculo da Jogada do Computador}
 Os bots têm 2 níveis de dificuldade, sendo o bot1 um jogador que escolhe posições aleatoriamente e o bot2 um jogador com capacidade de decidir qual a jogada que lhe irá dar mais pontos, aplicando uma estratégia gananciosa (greedy algorithms). Foi colocado um sleep de um segundo quando o bot joga para que o utilizador possa aperceber-se da sua presença facilmente.\\
-\indent De notar que o jogo em si, poderá levar um tempo considerável a acabar, dado que chega-se a um ponto em que ambos os jogadores impedem o adversário de pontuar, ou seja, esta nuance também se reflecte nos bots que, ao jogararem entre si, podem levar imenso tempo a finalizar o jogo.\\
+\indent De notar que o jogo em si, poderá levar um tempo considerável a acabar, dado que chega-se a um ponto em que ambos os jogadores impedem o adversário de pontuar, ou seja, esta nuance também se reflete nos bots que, ao jogararem entre si, podem levar imenso tempo a finalizar o jogo.\\
 \indent A invocação do bot é feita pelo aiPlay que tem como parâmetros o número do jogador, o tabuleiro, a posição e o tipo de bot (bot1 ou bot2).
 
 \begin{verbatim}
@@ -248,7 +248,7 @@ aiPlay(PlayerNum,Board,Pos,BotType):-
 
 
 \subsection{Mensagens com o visualizador}
-A integração da troca de mensagems com o utilizador será feita na secção onde se imprime o tabuleiro e onde se obtem a posição das sementes por parte do jogador. No nível mais alto da implementação será o predicado readCGIUserInput(Pos), que irá recorrer ao predicados de troca de mensagen: sendMessage(Message) e readMessage(Message). Estas funcionalidades serão implementadas em conjunto com o terceiro prático de LAIG, pelo será esse o momento oportuno para o seu desenvolvimento.
+A integração da troca de mensagens com o utilizador será feita na secção onde se imprime o tabuleiro e onde se obtém a posição das sementes por parte do jogador. No nível mais alto da implementação será o predicado readCGIUserInput(Pos), que irá recorrer ao predicados de troca de mensagem: sendMessage(Message) e readMessage(Message). Estas funcionalidades serão implementadas em conjunto com o terceiro prático de LAIG, pelo será esse o momento oportuno para o seu desenvolvimento.
 
 
 \section{Interface com o Utilizador}
@@ -281,12 +281,12 @@ A interface com o utilizador é relativamente simples, usando-se a linha de coma
 \end{figure}
 \newpage
 \section{Conclusões e Perspetivas de Desenvolvimento}
-Para um programador comum que está habituado a linguagens funcionais, no primeiro contato com o Prolog é normal sentir-se um bocado limitado devido ao paradigma que está habituado a ter no desenvolvimento de soluções. Porém, após um período, consegue aperceber-se da potencialidade que esta linguagem tem, especialmente em computar soluções. \\
-\indent O desenvolvimento do Oware em Prolog teve um ritmo estável, apesar de que se teve obviamente momentos em que foram alocados períodos de tempos consideráveis para despitar bugs que numa linguagem funcional seriam triviais. Apesar disso, cumpriram-se os objetivos inicialmente propostos, o que se traduz num desafio superado com sucesso.
+Para um programador comum que está habituado a linguagens funcionais, no primeiro contacto com o Prolog é normal sentir-se um bocado limitado devido ao paradigma que está habituado a ter no desenvolvimento de soluções. Porém, após um período, consegue aperceber-se da potencialidade que esta linguagem tem, especialmente em computar soluções. \\
+\indent O desenvolvimento do Oware em Prolog teve um ritmo estável, apesar de que se teve obviamente momentos em que foram alocados períodos de tempos consideráveis para despistar bugs que numa linguagem funcional seriam triviais. Apesar disso, cumpriram-se os objetivos inicialmente propostos, o que se traduz num desafio superado com sucesso.
 \\ \indent Ora reforça-se que esta implementação se enquadra no contexto da Unidade Curricular de programação em lógica e admite-se que com o Prolog consegue-se mais facilmente computar soluções, que envolvam processos heurísticos e recursivos. Porém, existe uma perda enorme na legibilidade do código visto que as instruções que habitualmente descrevem um corpo de uma função, são substituídas por uma série de predicados, sendo necessário interpretar todos os parâmetros que esses predicados contêm, tornando mais difícil a compreensão das decisões tomadas. 
-\\ \indent Os interpretadores SWI Prolog e Sicstus, foram usadas para correr o nosso código, porém, carecem de um bom editor de texto, pelo que a melhor solução encontrada foi o Sublime Text 2 que possui a sintaxe de Prolog, tornando o desenvolvimento muito mais produtivo. Outro problema encontrado é que estes em certos aspectos, não são uniformes entre si relativamente ao Standard do Prolog. Possivelmente estes problemas serão concerteza resolvidos no futuro com a motivação da comunidade que desenvolve em Prolog.
+\\ \indent Os interpretadores SWI Prolog e Sicstus, foram usadas para correr o nosso código, porém, carecem de um bom editor de texto, pelo que a melhor solução encontrada foi o Sublime Text 2 que possui a sintaxe de Prolog, tornando o desenvolvimento muito mais produtivo. Outro problema encontrado é que estes em certos aspetos, não são uniformes entre si relativamente ao Standard do Prolog. Possivelmente estes problemas serão com certeza resolvidos no futuro com a motivação da comunidade que desenvolve em Prolog.
 \\ 
-\indent Consideramos que fizemos uma implementação eficiente do Oware e, dado que o nosso esquema de tabuleiro é simples, foi fácil representá-lo em modo de texto, pois para um jogo mais complexo seria concerteza uma barreira a ultrapassar. O desenvolvimento de testes nos aspectos críticos do Jogo garantem que entregamos um produto final. Pode-se sugerir no futuro uma abordagem de testes mais exaustiva mas para projectos que tenham um grau de complexidade superior. 
+\indent Consideramos que fizemos uma implementação eficiente do Oware e, dado que o nosso esquema de tabuleiro é simples, foi fácil representa-lo em modo de texto, pois para um jogo mais complexo seria com certeza uma barreira a ultrapassar. O desenvolvimento de testes nos aspetos críticos do Jogo garantem que entregamos um produto final. Pode-se sugerir no futuro uma abordagem de testes mais exaustiva mas para projetos que tenham um grau de complexidade superior. 
 
 
 
