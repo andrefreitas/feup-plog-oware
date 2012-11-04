@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  4 NOV 2012 17:33
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.1)  4 NOV 2012 18:25
 entering extended mode
 **relatorio.tex
 (C:\Users\André\git\plog-oware\docs\relatorio.tex
@@ -352,6 +352,12 @@ LaTeX Warning: Label `fig:semCaptura' multiply defined.
 
 LaTeX Warning: Label `sub@fig:semCaptura' multiply defined.
 
+
+LaTeX Warning: Label `fig:Comeco' multiply defined.
+
+
+LaTeX Warning: Label `fig:Comeco' multiply defined.
+
 )
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -579,51 +585,209 @@ Overfull \hbox (1.49698pt too wide) in paragraph at lines 168--168
  []
 
 
-Overfull \hbox (59.24648pt too wide) in paragraph at lines 189--189
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 198--198
 []\OT1/cmtt/m/n/10 playSeeds([[1,0,7,0,0,0],[0,4,2,1,1,0]],1,2,[[2,1,0,0,0,0],[
 1,5,0,0,0,0]],7).[] 
  []
 
-[8] [9] <owareExample.png, id=57, 310.91156pt x 438.8897pt>
-File: owareExample.png Graphic file (type png)
+[8] [9] <owareBeginGame.png, id=57, 310.91156pt x 224.33812pt>
+File: owareBeginGame.png Graphic file (type png)
 
-<use owareExample.png>
-Package pdftex.def Info: owareExample.png used on input line 250.
-(pdftex.def)             Requested size: 248.72957pt x 351.11223pt.
- [10 <C:/Users/André/git/plog-oware/docs/owareExample.png>] [11]
-Underfull \hbox (badness 1281) in paragraph at lines 290--295
+<use owareBeginGame.png>
+Package pdftex.def Info: owareBeginGame.png used on input line 260.
+(pdftex.def)             Requested size: 310.91078pt x 224.33757pt.
+ <owareBotPlays.png, id=58, 310.91156pt x 210.7875pt>
+File: owareBotPlays.png Graphic file (type png)
+
+<use owareBotPlays.png>
+Package pdftex.def Info: owareBotPlays.png used on input line 269.
+(pdftex.def)             Requested size: 310.91078pt x 210.78699pt.
+ [10 <C:/Users/André/git/plog-oware/docs/owareBeginGame.png>] <owareVictory.pn
+g, id=63, 289.08pt x 226.59656pt>
+File: owareVictory.png Graphic file (type png)
+
+<use owareVictory.png>
+Package pdftex.def Info: owareVictory.png used on input line 277.
+(pdftex.def)             Requested size: 289.07928pt x 226.596pt.
+ [11 <C:/Users/André/git/plog-oware/docs/owareBotPlays.png> <C:/Users/André/g
+it/plog-oware/docs/owareVictory.png>] [12]
+Underfull \hbox (badness 1281) in paragraph at lines 318--323
 []\OT1/cmr/m/n/10 Easy Oware 2012. \OT1/cmr/m/it/10 Play the clas-sic stra-tegy
  game from Africa\OT1/cmr/m/n/10 . Ace-
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 290--295
+Underfull \hbox (badness 1762) in paragraph at lines 318--323
 \OT1/cmr/m/n/10 dido a 2 de Ou-tu-bro de 2012. http://itunes.apple.com/br/app/e
 asy-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--301
+Underfull \hbox (badness 10000) in paragraph at lines 325--329
 []\OT1/cmr/m/n/10 SICStus Pro-log. \OT1/cmr/m/it/10 SICS-tus Pro-log - Ran-dom 
 Num-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--301
+Underfull \hbox (badness 10000) in paragraph at lines 325--329
 \OT1/cmr/m/it/10 ber Ge-ne-ra-tor\OT1/cmr/m/n/10 . Ace-dido a 1 de No-vem-bro d
 e 2012.
  []
 
-[12] [13] (C:\Users\André\git\plog-oware\docs\relatorio.aux)
+[13]
+Overfull \hbox (253.49478pt too wide) in paragraph at lines 345--345
+[]\OT1/cmtt/m/n/10 % Args: Current Turn, Score done, Player 1 Score, Player 2 S
+core, New Turn, New Player 1 Score, New Player 2 Score[] 
+ []
+
+
+Overfull \hbox (95.99615pt too wide) in paragraph at lines 346--346
+[]\OT1/cmtt/m/n/10 updateScoreandTurn(Turn, Score, P1Score, P2Score, TurnNew, P
+1ScoreNew, P2ScoreNew):-[] 
+ []
+
+[14]
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 415--415
+[]\OT1/cmtt/m/n/10 updateScoreandTurn(Turn,Score,P1Score,P2Score,TurnNew,P1Scor
+eNew,P2ScoreNew),[] 
+ []
+
+
+Overfull \hbox (174.74547pt too wide) in paragraph at lines 426--426
+[]\OT1/cmtt/m/n/10 startGame(Player1Type,Player2Type):- initBoard(B),gameRoutin
+e(B,[Player1Type,0],[Player2Type,0],1).[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 430--430
+[]\OT1/cmtt/m/n/10 % **********************************************************
+******[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 432--432
+[]\OT1/cmtt/m/n/10 % **********************************************************
+******[] 
+ []
+
+[15]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 468--468
+[]\OT1/cmtt/m/n/10 % **********************************************************
+******[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 470--470
+[]\OT1/cmtt/m/n/10 % **********************************************************
+******[] 
+ []
+
+[16] [17]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 565--565
+[]\OT1/cmtt/m/n/10 % Args: Board, Circular Index, Seeds, NewBoard, Final Circul
+ar Index[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 581--581
+[]\OT1/cmtt/m/n/10 getSeedsCircular(Board,CircularIndex,0). % Case when there a
+re 0 seeds[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 587--587
+[]\OT1/cmtt/m/n/10 placeSeeds(TempBoard,CircularIndex+1,Seeds,TempBoard2,FinalI
+ndex),[] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 591--591
+[]\OT1/cmtt/m/n/10 % By giving the last position, the predicate capture the see
+ds in the oposite[] 
+ []
+
+[18]
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 649--649
+[]\OT1/cmtt/m/n/10 %Args: Board, Player Number, Score List, Index that starts w
+ith 0 N[0-5][] 
+ []
+
+[19] [20] [21]
+Overfull \hbox (137.99579pt too wide) in paragraph at lines 800--800
+[]\OT1/cmtt/m/n/10 testVictoryPlayer1:- B=[[1,0,7,0,0,0],[0,4,2,1,1,0]],gameRou
+tine(B,[human,20],[human,12],1).[] 
+ []
+
+
+Overfull \hbox (137.99579pt too wide) in paragraph at lines 801--801
+[]\OT1/cmtt/m/n/10 testVictoryPlayer2:- B=[[0,4,2,1,1,0],[1,0,7,0,0,0]],gameRou
+tine(B,[human,12],[human,20],2).[] 
+ []
+
+
+Overfull \hbox (143.24574pt too wide) in paragraph at lines 805--805
+[]\OT1/cmtt/m/n/10 testPlayer1CantPlay:- B=[[4,0,0,0,0,0],[0,0,0,4,5,3]],gameRo
+utine(B,[human,20],[human,12],1).[] 
+ []
+
+
+Overfull \hbox (143.24574pt too wide) in paragraph at lines 806--806
+[]\OT1/cmtt/m/n/10 testPlayer2CantPlay:- B=[[0,0,0,4,5,3],[4,0,0,0,0,0]],gameRo
+utine(B,[human,12],[human,20],2).[] 
+ []
+
+
+Overfull \hbox (116.99597pt too wide) in paragraph at lines 809--809
+[]\OT1/cmtt/m/n/10 % Instructions: the position should be allways 6 because it 
+the one that have more score[] 
+ []
+
+
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 810--810
+[]\OT1/cmtt/m/n/10 testBotIsSmart1(Pos):- aiPlay(1,[[0,2,0,0,0,7],[1,2,3,4,5,6]
+],Pos,bot2).[] 
+ []
+
+
+Overfull \hbox (116.99597pt too wide) in paragraph at lines 811--811
+[]\OT1/cmtt/m/n/10 % Instructions: the position should be allways 2 because it 
+the one that have more score[] 
+ []
+
+[22]
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 812--812
+[]\OT1/cmtt/m/n/10 testBotIsSmart2(Pos):- aiPlay(2,[[1,1,1,1,1,1],[0,7,0,0,2,0]
+],Pos,bot2).[] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 814--814
+[]\OT1/cmtt/m/n/10 testBotIsSmartButCantScore(Pos):-aiPlay(1,[[0,0,0,0,1,2],[0,
+1,2,3,4,5]],Pos,bot2).[] 
+ []
+
+
+Overfull \hbox (101.24611pt too wide) in paragraph at lines 817--817
+[]\OT1/cmtt/m/n/10 % Instructions: the positions should be 2 or 6 because it ca
+n't compute the max score[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 818--818
+[]\OT1/cmtt/m/n/10 testBotIsDumb1(Pos):- aiPlay(1,[[0,2,0,0,0,7],[1,2,3,4,5,6]]
+,Pos,bot1).[] 
+ []
+
+[23] (C:\Users\André\git\plog-oware\docs\relatorio.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2897 strings out of 494045
- 42391 string characters out of 3148384
- 112155 words of memory out of 3000000
- 6170 multiletter control sequences out of 15000+200000
+ 2911 strings out of 494045
+ 42668 string characters out of 3148384
+ 113155 words of memory out of 3000000
+ 6182 multiletter control sequences out of 15000+200000
  9314 words of font info for 33 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  36i,9n,38p,695b,437s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -634,9 +798,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb>
-Output written on relatorio.pdf (13 pages, 3538124 bytes).
+Output written on relatorio.pdf (23 pages, 3556362 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
+ 129 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

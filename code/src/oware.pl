@@ -51,10 +51,10 @@ gameRoutine(_,Player1,Player2,_):-
 	Player2=[_,P2Score],
 	(
 		(P1Score>=25),
-		write('\nPlayer 1 Wins!');
+		write('\nPlayer 1 Wins with '), write(P1Score), write(' seeds!');
 
 		(P2Score>=25),
-		write('\nPlayer 2 Wins!')
+		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!')
 	).
 
 gameRoutine([H|[Th|Tt]],Player1,Player2,Turn):-
