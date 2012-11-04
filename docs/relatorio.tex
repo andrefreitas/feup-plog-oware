@@ -27,14 +27,19 @@
 \newpage
 \section*{Resumo}
 Este relatório tem o objetivo de descrever a implementação do Jogo Oware numa linguagem de programação lógica em matemática que é o Prolog. O jogo em questão é de tabuleiro, jogando-se com sementes, sendo muito popular na República do Gana. Apesar da simplicidade das regras tem um forte componente estratégico.\\
-O jogo foi implementado com recurso a listas para representar o tabuleiro e para representar as propriedades dos jogadores, estando organizando em módulos de manipulação do tabuleiro, rotinas de jogo, inteligência artificial, interfaces e predicados de teste. Existem 2 níveis de bots que jogam, respectivamente, aleatoriamente e com base numa heurística.
+\indent O jogo  Oware foi implementado com recurso a listas para representar o tabuleiro e para representar as propriedades dos jogadores, estando organizando em módulos de manipulação do tabuleiro, rotinas de jogo, inteligência artificial, interfaces e predicados de teste. Existe ainda a possibilidade de jogar contra o computador com 2 níveis diferentes. Com isto, conseguiu-se uma interface de texto, não muito rica, mas adequada tendo em conta o contexto deste trabalho.
 
-%************************************************************************************************
-%************************************************************************************************
 
 %*************************************************************************************************
 %************************************************************************************************
+\newpage
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
 
+%************************************************************************************************
+%************************************************************************************************
+
+\newpage
 \section{Introdução}
 Pretende-se explorar as capacidades do Prolog para representar um jogo e as suas regras através deste trabalho. Um jogo é uma excelente maneira de enriquecer o conhecimento na representação e estruturação dos dados bem como a aplicação de regras do jogo traduzidas nesta linguagem. \\
 \indent A implementação em questão é em modo de texto, não sendo muito refinada no sentido da apresentação mas sim na componente das funcionalidades. \\
@@ -111,9 +116,19 @@ Ora, como referido anteriormente, o sistema é decomposto em módulos o que perm
   \item owareAI.pl - módulo que contém os predicados para os bots;
   \item owareTest.pl - módulo que possui testes considerados pertinentes;
 \end{enumerate}
-Destaca-se a atenção na análise do código dos predicados gameRoutine, aiPlay e playSeeds, que são o ponto de partida para a compreensão da implementação do jogo.
-\subsection*{Visualizador 3D}
-Para a implementação com o visualizador 3D, será criado um módulo que terá o nome "owareServer.pl", usando a comunicação por socket do Sicstus com o seguinte protocolo:
+
+\indent Destaca-se a atenção na análise do código dos predicados gameRoutine, aiPlay e playSeeds, que são o ponto de partida para a compreensão da implementação do jogo.
+
+\indent Para começar o jogo, basta fazer uma consulta ao ficheiro oware.pl e invocar o predicado startGame que recebe 2 parâmetros, que são os tipos do jogador 1 e 2, que podem ser human, bot1 ou bot2. Assim sendo, se pretende um jogo entre um humano e um bot de nível 2, será startGame(human,bot2). 
+
+\subsection{Inteligência Artificial}
+Os bots têm 2 níveis de dificuldade, sendo o bot1 um jogador que escolhe posições aleatoriamente e o bot2 um jogador com capacidade de decidir qual a jogada que lhe irá dar mais pontos, aplicando uma estratégia gananciosa (greedy algorithms).
+De notar que o jogo em si, poderá levar um tempo considerável a acabar, dado que chega-se a um ponto em que ambos os jogadores impedem o adversário de pontuar, ou seja, esta nuance também se reflecte nos bots que, ao jogararem entre si, podem levar imenso tempo a finalizar o jogo. Recomenda-se uma análise breve ao predicado aiPlay no ficheiro owareAI.pl para esclarecer quaisquer tipo de dúvidas que tenham surgido.
+
+\newpage
+
+\subsection{Protocolo de mensagens com o visualizador}
+Para a implementação com o visualizador 3D, será criado um módulo que terá o nome "owareServer.pl", usando a comunicação por socket do Sicstus com o seguinte protocolo de mensagens:
 \begin{verbatim}
      +----------------+                            +----------------+
      |   LAIG APP     |   beginGame human bot2     |  Oware Server  |
@@ -135,13 +150,13 @@ Para a implementação com o visualizador 3D, será criado um módulo que terá 
      |                |<--------------------------+|                |
      +----------------+                            +----------------+
 \end{verbatim}
-Assim sendo, a linguagem das mensagens, é a seguinte:
+Assim sendo, a sintaxe das mensagens, é a seguinte:
 \begin{enumerate}
 \item beginGame (player1Type) (player2Type) - indica a informação para iniciar o jogo;
 \item ack - confirma o início do jogo;
 \item playerTurn (1 or 2) - indica qual é o jogador que vai jogar;
 \item gameStatus (board) (player1 score) (player2 score) - indica o estado do jogo;
-\item playerChoose (1-6) - indica qual a posicao a jogar;
+\item playerChoose (1-6) - indica qual a posição escolhida pelo jogador;
 \item endGame (victory (1 or 2)) or (draw) - sinaliza o fim do jogo.
 \end{enumerate}
 
