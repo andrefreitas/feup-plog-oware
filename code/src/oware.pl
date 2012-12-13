@@ -120,8 +120,20 @@ gameRoutine(Board,Player1,Player2,Turn,Stream):-
 		write(' bot chosen: '), write(Pos), nl,sleep(1);
 		% else
 		write(' choose [1-6]: '),
+		(
+			% Is streaming
+			\+(Stream=0),
+			read(Stream,Msg),
+			element(Msg,0,Action),
+			(
+				Action=playerChooses,
+				element(Msg,1,Pos);
 
-		readUserInput(Pos)
+				1=1
+			);
+			% Is not s
+			readUserInput(Pos)
+		)
 	),
 
 	% Call the game routine again
