@@ -40,13 +40,13 @@ whoPlaysNow(Turn,Player1,Player2,PlaysNow):-
 % GameRoutine/5
 % Here is where the magic goes 
 % Args: Board, Player 1 Score, Player 2 Score, Turn , BotType
-gameRoutine(_,Player1,Player2,_,IsServer):-
+gameRoutine(_,Player1,Player2,_,Stream):-
 	Player1=[_,P1Score],
 	Player2=[_,P2Score],
 	P1Score=24,P1Score=P2Score,
 	write('You Both Win!').
 
-gameRoutine(_,Player1,Player2,_,IsServer):-
+gameRoutine(_,Player1,Player2,_,Stream):-
 	Player1=[_,P1Score],
 	Player2=[_,P2Score],
 	(
@@ -57,7 +57,7 @@ gameRoutine(_,Player1,Player2,_,IsServer):-
 		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!')
 	).
 
-gameRoutine([H|[Th|Tt]],Player1,Player2,Turn,IsServer):-
+gameRoutine([H|[Th|Tt]],Player1,Player2,Turn,Stream):-
 	( 
 		(Turn=1,H=[0,0,0,0,0,0],\+(Th=[0,0,0,0,0,0]));
 		(Turn=2,Th=[0,0,0,0,0,0],\+(H=[0,0,0,0,0,0]))
@@ -65,9 +65,9 @@ gameRoutine([H|[Th|Tt]],Player1,Player2,Turn,IsServer):-
 	TurnNew is Turn mod 2 +1,
 	write('\nYou have no seeds to play :( passing turn...\n'),
 	sleep(1),
-	gameRoutine([H|[Th|Tt]],Player1,Player2,TurnNew).
+	gameRoutine([H|[Th|Tt]],Player1,Player2,TurnNew,Stream).
 
-gameRoutine(Board,Player1,Player2,Turn,IsServer):-
+gameRoutine(Board,Player1,Player2,Turn,Stream):-
 	Player1=[P1Type,P1Score],
 	Player2=[P2Type,P2Score],
 	printBoard(Board,P1Score,P2Score),
@@ -83,7 +83,7 @@ gameRoutine(Board,Player1,Player2,Turn,IsServer):-
 		write(' bot chosen: '), write(Pos), nl,sleep(1);
 		% else
 		write(' choose [1-6]: '),
-		
+
 		readUserInput(Pos)
 	),
 
@@ -95,10 +95,10 @@ gameRoutine(Board,Player1,Player2,Turn,IsServer):-
 		updateScoreandTurn(Turn,Score,P1Score,P2Score,TurnNew,P1ScoreNew,P2ScoreNew),
 		Player1New=[P1Type,P1ScoreNew],
 		Player2New=[P2Type,P2ScoreNew],
-		gameRoutine(NewBoard,Player1New,Player2New,TurnNew))
+		gameRoutine(NewBoard,Player1New,Player2New,TurnNew,Stream))
 		
 		; % else
-		gameRoutine(Board,Player1,Player2,Turn)
+		gameRoutine(Board,Player1,Player2,Turn,Stream)
 	).
 	
 % StartGame/0

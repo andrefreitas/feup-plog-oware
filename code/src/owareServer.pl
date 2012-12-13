@@ -47,11 +47,27 @@ comando(Arg1, Arg2, Answer) :-
 startServer(Port):- 
 	socket_server_open(Port, Socket),
 	socket_server_accept(Socket, _Client, Stream, [type(text)]),
+
+	% Read Players Types
 	read(Stream,Msg),
 	element(Msg,0,Action),
-	element(Msg,1,Player1),
-	element(Msg,2,Player2),
-	write('Action: '), write(Action),nl,
-	write('Player1: '),write(Player1),nl,
-	write('Player2: '),write(Player2),nl,
+	element(Msg,1,Player1Type),
+	element(Msg,2,Player2Type),
+	element(Msg,3,Turn),
+	write('Action: '), write(Action),
+	write(' Player1: '),write(Player1Type),
+	write(' Player2: '),write(Player2Type),
+	write(' Turn: '),write(Turn),nl,
+
+	% Starts the game only if it's ok
+	(
+		Action=beginGame,
+		(Player1Type=bot1; Player1Type=bot2; Player1Type=human),
+		format(Stream, '~q.~n', [ack]),
+		flush_output(Stream),
+		initBoard(B),gameRoutine(B,[Player1Type,0],[Player2Type,0],Turn,1);
+
+		format(Stream, '~q.~n', [error]),
+		flush_output(Stream)
+	),
 	socket_server_close(Socket).
