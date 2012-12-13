@@ -17,6 +17,7 @@
 :- consult(owareBoard).
 :- consult(owareAI).
 :-use_module(library(system)).
+:-use_module(library(sockets)).
 
 	
 % updateScoreandTurn/7
@@ -44,18 +45,35 @@ gameRoutine(_,Player1,Player2,_,Stream):-
 	Player1=[_,P1Score],
 	Player2=[_,P2Score],
 	P1Score=24,P1Score=P2Score,
-	write('You Both Win!').
+	write('You Both Win!'),
+	(
+		\+(Stream=0),
+		format(Stream, '~q ', [endGame]),
+		format(Stream, '~q.~n', [draw]),
+		flush_output(Stream);
+		1=1
+	).
 
 gameRoutine(_,Player1,Player2,_,Stream):-
 	Player1=[_,P1Score],
 	Player2=[_,P2Score],
 	(
 		(P1Score>=25),
-		write('\nPlayer 1 Wins with '), write(P1Score), write(' seeds!');
+		write('\nPlayer 1 Wins with '), write(P1Score), write(' seeds!'),Player=1;
 
 		(P2Score>=25),
-		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!')
-	).
+		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!'),Player=2
+	),
+	(
+		\+(Stream=0),
+		((P1Score>=25); (P2Score>=25)),
+		format(Stream, '~q ', [endGame]),
+		format(Stream, '~q ', [victory]),
+		format(Stream, '~q.~n', [Player]),
+		flush_output(Stream);
+		1=1
+	)
+	.
 
 gameRoutine([H|[Th|Tt]],Player1,Player2,Turn,Stream):-
 	( 
@@ -64,6 +82,12 @@ gameRoutine([H|[Th|Tt]],Player1,Player2,Turn,Stream):-
 	),
 	TurnNew is Turn mod 2 +1,
 	write('\nYou have no seeds to play :( passing turn...\n'),
+	(
+		\+(Stream=0),
+		format(Stream, '~q.~n', [noSeeds]),
+		flush_output(Stream);
+		1=1
+	),
 	sleep(1),
 	gameRoutine([H|[Th|Tt]],Player1,Player2,TurnNew,Stream).
 
@@ -76,6 +100,19 @@ gameRoutine(Board,Player1,Player2,Turn,Stream):-
 	isBotThisTurn(Turn,Player1,Player2,IsBot),
 	whoPlaysNow(Turn,Player1,Player2,PlaysNow),
 	PlaysNow=[PlayerType,_],
+
+	(
+		\+(Stream=0),
+		format(Stream, '~q', [playerTurn]),
+		format(Stream, ' ~q.~n', [Turn]),
+		flush_output(Stream),
+		format(Stream, '~q ', [gameStatus]),
+		format(Stream, '~w ', [Board]),
+		format(Stream, '~q ', [P1Score]),
+		format(Stream, '~q.~n', [P2Score]),
+		flush_output(Stream);
+		1=1
+	),
 	write('Player '),write(Turn),
 	(
 		IsBot=true,

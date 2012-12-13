@@ -65,7 +65,7 @@ startServer(Port):-
 		(Player1Type=bot1; Player1Type=bot2; Player1Type=human),
 		format(Stream, '~q.~n', [ack]),
 		flush_output(Stream),
-		initBoard(B),gameRoutine(B,[Player1Type,0],[Player2Type,0],Turn,1);
+		initBoard(B),gameRoutine(B,[Player1Type,0],[Player2Type,0],Turn,Stream);
 
 		format(Stream, '~q.~n', [error]),
 		flush_output(Stream)
