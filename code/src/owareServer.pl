@@ -68,7 +68,7 @@ startOwareServer(Stream):-
 	(
 		Action=beginGame,
 		(Player1Type=bot1; Player1Type=bot2; Player1Type=human),
-		(Player2Type=bot1; Player2Type=bot2; Player2Type=human)
+		(Player2Type=bot1; Player2Type=bot2; Player2Type=human),
 		format(Stream, '~q.~n', [ack]),
 		flush_output(Stream),
 		(
