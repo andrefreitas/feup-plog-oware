@@ -121,6 +121,7 @@ gameRoutine(Board,Player1,Player2,Turn,Stream):-
 		(
 			\+(Stream=0),
 			format(Stream, 'playerChooses ~q.~n', [Pos]),
+			Action=continue;
 
 			1=1
 		)
@@ -134,10 +135,10 @@ gameRoutine(Board,Player1,Player2,Turn,Stream):-
 			read(Stream,Msg),
 			element(Msg,0,Action),
 			(
-				Action=playerChooses,
-				element(Msg,1,Pos);
+				Action=endGame;
 
-				1=1
+				Action=playerChooses,
+				element(Msg,1,Pos)
 			);
 			% Is not s
 			readUserInput(Pos)
@@ -147,15 +148,18 @@ gameRoutine(Board,Player1,Player2,Turn,Stream):-
 
 	% Call the game routine again
 		(
+			
+			(\+(Stream=0),Action=endGame);
+
 			% If player played positon with seeds
 			(playSeeds(Board,Turn,Pos - 1,NewBoard,Score),
 		 	\+(NewBoard=Board) ,
 			updateScoreandTurn(Turn,Score,P1Score,P2Score,TurnNew,P1ScoreNew,P2ScoreNew),
 			Player1New=[P1Type,P1ScoreNew],
 			Player2New=[P2Type,P2ScoreNew],
-			gameRoutine(NewBoard,Player1New,Player2New,TurnNew,Stream))
+			gameRoutine(NewBoard,Player1New,Player2New,TurnNew,Stream));
 			
-			; % else
+			
 			gameRoutine(Board,Player1,Player2,Turn,Stream)
 		)
 	.
