@@ -59,17 +59,18 @@ gameRoutine(_,Player1,Player2,_,Stream):-
 	Player2=[_,P2Score],
 	(
 		(P1Score>=25),
-		write('\nPlayer 1 Wins with '), write(P1Score), write(' seeds!'),Player=1;
+		write('\nPlayer 1 Wins with '), write(P1Score), write(' seeds!'),Player=1,Seeds=P1Score;
 
 		(P2Score>=25),
-		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!'),Player=2
+		write('\nPlayer 2 Wins with '), write(P2Score), write(' seeds!'),Player=2,Seeds=P2Score
 	),
 	(
 		\+(Stream=0),
 		((P1Score>=25); (P2Score>=25)),
 		format(Stream, '~q ', [endGame]),
 		format(Stream, '~q ', [victory]),
-		format(Stream, '~q.~n', [Player]),
+		format(Stream, '~q ', [Player]),
+		format(Stream, '~q.~n', [Seeds]),
 		flush_output(Stream);
 		1=1
 	)
