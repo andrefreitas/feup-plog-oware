@@ -171,9 +171,15 @@ playSeeds(Board,PlayerNum,I,Board,0):-
 playSeeds(Board,PlayerNum,I,NewBoard,Score):-
 	getCircularIndex(PlayerNum,I,CircularIndex),
 	getSeedsCircular(Board,CircularIndex,Seeds),
+
+	(Seeds>0,
 	removeSeedsCircular(Board,CircularIndex,Seeds,TempBoard),
 	placeSeeds(TempBoard,CircularIndex+1,Seeds,TempBoard2,FinalIndex),
-	captureSeeds(TempBoard2,PlayerNum,FinalIndex,NewBoard,Score).
+	captureSeeds(TempBoard2,PlayerNum,FinalIndex,NewBoard,Score),!);
+
+	NewBoard=Board,
+	Score=0
+	.
 
 % captureSeeds/5
 % By giving the last position, the predicate capture the seeds in the oposite 

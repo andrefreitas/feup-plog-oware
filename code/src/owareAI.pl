@@ -49,7 +49,7 @@ aiPlay(PlayerNum,Board,Pos,BotType):-
 	stupidBot(PlayerNum,Board,Pos)
 	
 ).
-
+%B=[[6,1,6,0,5,5],[6,6,5,4,4,0]],playSeeds(B,2,4,_,S).
 %bug B=[[6,1,6,0,5,5],[6,6,5,4,4,0]],aiPlay(2,B,Pos,bot2).
 
 % aiTryAll/4
