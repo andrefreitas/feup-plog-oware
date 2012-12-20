@@ -33,36 +33,39 @@
 % aiPlay/4
 % The Computer Plays trying to have the best score at each stage
 % Args: Player Number, Board, Position[1-6]
+
 aiPlay(PlayerNum,Board,Pos,BotType):-
+(
 	% If it's level 1 bot
 	BotType = bot1,
 	stupidBot(PlayerNum,Board,Pos);
-
-	% If it's level 2 bot and score
-	BotType = bot2,
-	(
-		aiTryAll(Board, PlayerNum, ScoreList,0),
-		scoreListGetPos(ScoreList,1,Pos,MaxScore),
-		MaxScore>0
-	);
-	%write('Going random...\n'),
-	aiPlay(PlayerNum,Board,Pos,bot1).
-
 	
+	% It's bot level 2
+	BotType = bot2,
+	aiTryAll(Board, PlayerNum, ScoreList),
+	scoreListGetPos(ScoreList,1,Pos,MaxScore),
+	MaxScore>0;
+
+	stupidBot(PlayerNum,Board,Pos)
+	
+).
+
+%bug B=[[6,1,6,0,5,5],[6,6,5,4,4,0]],aiPlay(2,B,Pos,bot2).
 
 % aiTryAll/4
 % Try all the possible positions and put the scores in the list
 %Args: Board, Player Number, Score List, Index that starts with 0 N[0-5]
-aiTryAll(Board, PlayerNum,[Score],5):-
-	playSeeds(Board,PlayerNum,5,_,Score).
 
-aiTryAll(Board, PlayerNum, ScoreList,N):-
-	N<5,
-	playSeeds(Board,PlayerNum,N,_,Score),
-	%write('N: '), write(N),write(' - Score: '), write(Score),nl,
-	NewN is N+1,
-	aiTryAll(Board,PlayerNum,NewScoreList,NewN),
-	append([Score],NewScoreList,ScoreList).
+
+aiTryAll(Board, PlayerNum, ScoreList):-
+	ScoreList=[S1,S2,S3,S4,S5,S6],
+	playSeeds(Board,PlayerNum,0,_,S1),
+	playSeeds(Board,PlayerNum,1,_,S2),
+	playSeeds(Board,PlayerNum,2,_,S3),
+	playSeeds(Board,PlayerNum,3,_,S4),
+	playSeeds(Board,PlayerNum,4,_,S5),
+	playSeeds(Board,PlayerNum,5,_,S6).
+
 
 % scoreListGetPos/4
 % Gets the position of the maximum score
