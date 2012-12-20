@@ -113,12 +113,14 @@ getCircularIndex(PlayerNum,I,CircularIndex):-
 % Args: Circular Index, Player Number, Line Index[0-5]
 getBoardIndex(CircularIndex, PlayerNum, LineIndex):-
 	CircularIndex > 11,
-	Index is CircularIndex mod 11 - 1,
+	Index is CircularIndex -12,
 	getBoardIndex(Index,PlayerNum,LineIndex);
+
 	CircularIndex > 5,
 	CircularIndex < 12,
 	LineIndex is CircularIndex-6,
 	PlayerNum=2;
+
 	CircularIndex>=0,
 	CircularIndex<6,
 	LineIndex is 5-CircularIndex,
@@ -145,18 +147,19 @@ removeSeedsCircular(Board,CircularIndex,Seeds,NewBoard):-
 	getBoardIndex(CircularIndex, PlayerNum, LineIndex),
 	removeSeeds(PlayerNum,Board,LineIndex,Seeds,NewBoard).
 
-	% placeSeeds/5
+% placeSeeds/5
 % Distribute the seeds from a given position
 % Args: Board, Circular Index, Seeds, NewBoard, Final Circular Index
 placeSeeds(TempBoard,CircularIndex,1,NewBoard,FinalIndex):-
 	addSeedsCircular(TempBoard,CircularIndex,1,NewBoard),
-	FinalIndex is CircularIndex.	
+	FinalIndex =CircularIndex.	
 
 placeSeeds(TempBoard,CircularIndex,Seeds,NewBoard,FinalIndex):-
 	addSeedsCircular(TempBoard,CircularIndex,1,TempBoard1),
 	CircularIndex2 is CircularIndex + 1,
 	NSeeds is Seeds - 1,
 	placeSeeds(TempBoard1,CircularIndex2,NSeeds,NewBoard,FinalIndex).
+
 
 % playSeeds/5
 % Play the seeds from a given position
